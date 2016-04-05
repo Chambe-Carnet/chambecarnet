@@ -17,9 +17,9 @@
 get_header(); ?>
 
 	<?php if ( is_active_sidebar( 'sidebar-4' )  ) : ?>
-		<aside id="secondary" class="sidebar widget-area" role="complementary">
+		<section id="top" class="sidebar widget-area" role="complementary">
 			<?php dynamic_sidebar( 'sidebar-4' ); ?>
-		</aside><!-- .sidebar .widget-area -->
+		</section><!-- .sidebar .widget-area -->
 	<?php endif; ?>
 
 	<div id="primary" class="content-area">
