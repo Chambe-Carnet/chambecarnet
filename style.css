@@ -26,3 +26,210 @@
     font-style: normal;
 
 }
+
+/*------------------------------------------------------------------------------------------------------------*/
+/*
+	= RESET
+*/
+/*------------------------------------------------------------------------------------------------------------*/
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body {
+	background:#f3f3eb;
+	font-family: 'Open Sans', sans-serif;
+	font-size:62.5%; /*ensuite 1em=10px en taille normale*/
+	color:#4c4c4c;
+}
+h1{
+	margin:0;
+	border: none;
+    font-family: 'blanchcaps';
+    font-weight:normal;
+	letter-spacing:normal;
+}
+h2, h3, h4, h5, h6{
+	margin:0;
+	border: none;
+    font-family: 'blanchcaps';
+    font-weight:normal;
+	letter-spacing:normal;
+}
+ul{
+	margin:0;
+    padding:0;
+	list-style-image:none;
+	list-style-type:none;
+    line-height:1.3em;
+}
+img{
+	border:none;
+}
+a, a:link{
+	text-decoration:none;
+	color:#000;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+a:visited{
+	text-decoration:none;
+	color:#0A4563;
+}
+a:hover, a:focus{
+	text-decoration:underline;
+	color:#0A4563;
+}
+input,
+textarea{
+	font-family: 'Open Sans', sans-serif;
+}
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus{
+	background-color:#fff;
+}
+
+/*------------------------------------------------------------------------------------------------------------
+	== STYLE DU THEME PARENT
+------------------------------------------------------------------------------------------------------------*/
+body:not(.custom-background-image)::before,
+body:not(.custom-background-image)::after{
+	height:auto;
+}
+#page{
+	margin:0;
+}
+.logged-in #page{
+	margin:32px 0 0;
+}
+
+
+/*------------------------------------------------------------------------------------------------------------*/
+/*
+	= HEADER
+*/
+/*------------------------------------------------------------------------------------------------------------*/
+header.site-header{
+	position:fixed;
+	top:0;
+	left:0;
+	right:0;
+	z-index:200;
+	padding:10px 65px;
+	background:#4c4c4c;
+}
+.logged-in header.site-header{
+	top:32px;
+}
+
+header.site-header *{
+	margin:0;
+}
+
+/*------------------------------------------------------------------------------------------------------------
+	== TITRE / LOGO
+------------------------------------------------------------------------------------------------------------*/
+.site-branding h1,
+.site-branding p{
+	display:none;
+}
+.header-image a img{
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+/*------------------------------------------------------------------------------------------------------------
+	== MENU NAVIGATION
+------------------------------------------------------------------------------------------------------------*/
+#site-header-menu{
+	position:absolute;
+	top:0;
+	right:65px;
+	bottom:0;
+	text-align:right;
+}
+#site-header-menu *{
+	height:100%
+}
+#site-header-menu ul li{
+	position:relative;
+}
+.main-navigation .current-menu-item::after,
+.main-navigation .current-menu-ancestor::after{
+	content:url(images/asso-on.png);
+	position:absolute;
+	top:100%;
+	left:0;
+	right:0;
+	text-align:center;
+}
+.main-navigation .current-menu-item:nth-child(1)::after,
+.main-navigation .current-menu-ancestor:nth-child(1)::after{
+	content:url(images/news-on.png);
+}
+.main-navigation .current-menu-item:nth-child(2)::after,
+.main-navigation .current-menu-ancestor:nth-child(2)::after{
+	content:url(images/jobs-on.png);
+}
+.main-navigation .current-menu-item:nth-child(3)::after,
+.main-navigation .current-menu-ancestor:nth-child(3)::after{
+	content:url(images/events-on.png);
+}
+#site-header-menu ul li a{
+	display:inline-block;
+	margin:0 0 0 1px;
+	padding:0;
+	background:#607d8b;
+	min-width:115px;
+    font-family: 'blanchcaps';
+	font-size:4em;
+	text-align:center;
+	color:#1a2930;
+	line-height:250%;
+}
+#site-header-menu ul li a:hover,
+#site-header-menu ul li a:focus{
+	text-decoration:none;
+	line-height:200%
+}
+#site-header-menu ul li:nth-child(1) a{
+	background:#c6f364;
+	color:#65771c;
+}
+#site-header-menu ul li:nth-child(2) a{
+	background:#ff6b6b;
+	color:#761414;
+}
+#site-header-menu ul li:nth-child(3) a{
+	background:#00bad1;
+	color:#034a53;
+}
+
+.main-navigation .current-menu-item > a,
+.main-navigation .current-menu-ancestor > a{
+	font-weight:normal;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
