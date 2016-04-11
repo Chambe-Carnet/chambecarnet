@@ -355,6 +355,16 @@ article.type-post{
 	margin:0;
 	background:#fff;
 }
+article.type-post + article.type-post{
+	margin:40px 0 0;
+}
+.home article.type-post{
+	float:left;
+	width:48%;
+}
+.home article.type-post:nth-child(even){
+	float:right;
+}
 
 /*
 	INFOS
@@ -392,6 +402,19 @@ article.type-post .entry-header h1{
 	font-weight:normal;
 	font-size:6em;
 	line-height:0.7;
+}
+article.type-post .entry-header h2{
+	margin:0;
+	font-family: 'Open Sans', sans-serif;
+	font-weight:normal;
+	font-size:2em;
+	line-height:0.7;
+}
+.home article.type-post .entry-header h2{
+    font-family: 'blanchcaps';
+	font-size:4em;
+}
+article.type-post .entry-header h2 a{
 }
 
 /*
