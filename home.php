@@ -70,5 +70,4 @@ get_header(); ?>
     </section><!-- .sidebar .widget-area -->
 <?php endif; ?>
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
