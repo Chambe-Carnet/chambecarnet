@@ -16,6 +16,12 @@
 
 get_header(); ?>
 
+<?php if (is_active_sidebar('sidebar-4')) : ?>
+    <section id="top" class="sidebar widget-area" role="complementary">
+        <?php dynamic_sidebar('sidebar-4'); ?>
+    </section><!-- .sidebar .widget-area -->
+<?php endif; ?>
+
 <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
 
@@ -58,5 +64,10 @@ get_header(); ?>
     </main><!-- .site-main -->
 </div><!-- .content-area -->
 
-<?php get_sidebar(); ?>
+<?php if (is_active_sidebar('sidebar-5')) : ?>
+    <section id="left" class="sidebar widget-area" role="complementary">
+        <?php dynamic_sidebar('sidebar-5'); ?>
+    </section><!-- .sidebar .widget-area -->
+<?php endif; ?>
+
 <?php get_footer(); ?>
