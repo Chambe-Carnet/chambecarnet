@@ -10,7 +10,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="entry-infos">
-		<?php twentysixteen_entry_meta(); ?>
+		<?php twentysixteen_entry_single_meta(); ?>
 		<?php
 			edit_post_link(
 				sprintf(
