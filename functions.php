@@ -6,6 +6,13 @@ function theme_enqueue_styles() {
 
 }
 
+# Ajout de la font
+add_action('wp_print_styles', 'load_fonts');
+function load_fonts() {
+	wp_register_style('googleFonts', 'https://fonts.googleapis.com/css?family=Open+Sans:400,700,300');
+	wp_enqueue_style( 'googleFonts');
+}
+
 # Enregistrement des différentes sidebars
 add_action( 'widgets_init', 'chambecarnet_register_sidebars' );
 function chambecarnet_register_sidebars() {
