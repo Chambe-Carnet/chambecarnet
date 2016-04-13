@@ -96,4 +96,10 @@
 
 		</header><!-- .site-header -->
 
+		<?php if ( is_home() and is_active_sidebar('sidebar-4') ) : ?>
+			<section id="top" class="sidebar widget-area" role="complementary">
+				<?php dynamic_sidebar('sidebar-4'); ?>
+			</section><!-- .sidebar .widget-area -->
+		<?php endif; ?>
+
 		<div id="content" class="site-content">
