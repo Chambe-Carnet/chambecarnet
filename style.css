@@ -250,6 +250,7 @@ header.site-header *{
 */
 .home #main{
 	position:relative;
+	overflow:hidden;
 }
 .home #main::before{
 	content:"";
@@ -282,7 +283,7 @@ header.site-header *{
 /*
 	SIDEBAR LEFT
 */
-#left{
+#secondary{
 	float:left;
 	margin:0;
 	width:25%;
@@ -300,7 +301,7 @@ header.site-header *{
 /*------------------------------------------------------------------------------------------------------------
 	== WIDGETS
 ------------------------------------------------------------------------------------------------------------*/
-.widget h2.widget-title{
+#content .widget h2.widget-title{
 	margin:0;
 	padding:0 0 0 15px;
     font-family: 'blanchcaps';
@@ -308,8 +309,8 @@ header.site-header *{
 	line-height:1;
 	letter-spacing:normal;
 }
-.widget > ul,
-.widget > div{
+#content .widget > ul,
+#content .widget > div{
 	padding:15px;
 	background:rgba(255,255,255,0.5);
 	-webkit-border-radius:5px;
@@ -535,8 +536,190 @@ nav.navigation .post-title{
 */
 /*------------------------------------------------------------------------------------------------------------*/
 
+/*------------------------------------------------------------------------------------------------------------*/
+/*
+	= PAGE JOBS
+*/
+/*------------------------------------------------------------------------------------------------------------*/
+.job_listings{}
+.job_listings ul li,
+.rp4wp-related-job_listing > ul li.job_listing,
+.rp4wp-related-job_listing > ul li.no_job_listings_found,
+ul.job_listings li.job_listing,
+ul.job_listings li.no_job_listings_found{
+	position:relative;
+	margin:20px 0 0;
+	padding:0;
+	background:#fff;
+	border:none;
+}
+.job_listings ul li a,
+.rp4wp-related-job_listing > ul li.job_listing a,
+.rp4wp-related-job_listing > ul li.no_job_listings_found a,
+ul.job_listings li.job_listing a,
+ul.job_listings li.no_job_listings_found a{
+	padding:20px;
+}
+.job_listings ul li a > img,
+.rp4wp-related-job_listing > ul li.job_listing a img.company_logo,
+.rp4wp-related-job_listing > ul li.no_job_listings_found a img.company_logo,
+ul.job_listings li.job_listing a img.company_logo,
+ul.job_listings li.no_job_listings_found a img.company_logo{
+	position:relative;
+	left:auto;
+	margin:0 20px 0 0;
+	width:auto;
+	max-width:10%;
+	height:auto;
+}
+.rp4wp-related-job_listing > ul li.job_listing a div.position h3,
+.rp4wp-related-job_listing > ul li.no_job_listings_found a div.position h3,
+ul.job_listings li.job_listing a div.position h3,
+ul.job_listings li.no_job_listings_found a div.position h3{
+	font-size:1.6em;
+	font-weight:300;
+}
+.job_listings ul li .position,
+.rp4wp-related-job_listing > ul li.job_listing a div.position,
+.rp4wp-related-job_listing > ul li.no_job_listings_found a div.position,
+ul.job_listings li.job_listing a div.position,
+ul.job_listings li.no_job_listings_found a div.position{
+	margin:0;
+	padding:0;
+}
+.job_listings ul li .location,
+.rp4wp-related-job_listing > ul li.job_listing a div.location,
+.rp4wp-related-job_listing > ul li.no_job_listings_found a div.location,
+ul.job_listings li.job_listing a div.location,
+ul.job_listings li.no_job_listings_found a div.location{
+	margin:0;
+	padding:0;
+}
+.job_listings ul li .meta,
+.rp4wp-related-job_listing > ul li.job_listing a .meta,
+.rp4wp-related-job_listing > ul li.no_job_listings_found a .meta,
+ul.job_listings li.job_listing a .meta,
+ul.job_listings li.no_job_listings_found a .meta{
+	position:absolute;
+	top:0;
+	right:0;
+	bottom:0;
+	padding:20px;
+	background:#ff6b6b;
+	color:#fff;
+	text-align:left;
+}
+.rp4wp-related-job_listing > ul li.job_listing a .meta .job-type,
+.rp4wp-related-job_listing > ul li.no_job_listings_found a .meta .job-type,
+ul.job_listings li.job_listing a .meta .job-type,
+ul.job_listings li.no_job_listings_found a .meta .job-type{
+	background:none;
+	font-size:4em;
+	font-weight:normal;
+    font-family: 'blanchcaps';
+	color:#fff;
+	line-height:1
+}
+.job_listings ul li .meta .date{
+	margin:20px 0 0!important;
+	padding:20px 0 0;
+	border-top:1px solid #fff;
+	background:none;
+	font-size:1.4em;
+}
 
+/*------------------------------------------------------------------------------------------------------------*/
+/*
+	= FOOTER
+*/
+/*------------------------------------------------------------------------------------------------------------*/
+footer.site-footer{
+	padding:65px;
+	background:#4c4c4c;
+}
+footer.site-footer section.sidebar{
+	float:none;
+	margin:0;
+	width:100%;
+	overflow:hidden;
+}
 
+/*------------------------------------------------------------------------------------------------------------
+	== WIDGETS
+------------------------------------------------------------------------------------------------------------*/
+.site-footer .widget{
+	float:left;
+}
+.site-footer .widget h2{
+	margin:0 0 10px;
+    font-family: 'blanchcaps';
+	font-size:3.5em;
+	letter-spacing:normal;
+	line-height:1;
+}
 
+/*
+  	RESEAUX SOCIAUX
+*/
+.widget .reseaux-sociaux li{
+	position:relative;
+	display:block;
+	width:45px;
+	height:45px;
+	background:#fff;
+	-webkit-border-radius:50px;
+	-moz-border-radius:50px;
+	border-radius:50px;
+}
+.widget .reseaux-sociaux li + li{
+	margin:10px 0 0;
+}
+.widget .reseaux-sociaux li a::before{
+	content:"";
+	display:block;
+	width:45px;
+	height:45px;
+	background-image:url(images/sprite.png);
+	
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+.widget .reseaux-sociaux li a:hover::before,
+.widget .reseaux-sociaux li a:focus::before{
+	opacity:0.8;
+}
+.widget .reseaux-sociaux li.twitter a::before{
+	background-position:-55px 0;
+}
+.widget .reseaux-sociaux li.facebook a::before{
+	background-position:0 0;
+}
+.widget .reseaux-sociaux li.flickr a::before{
+	background-position:-110px 0;
+}
+.widget .reseaux-sociaux li a span{
+	position:absolute;
+	top:-5000px;
+}
 
+/*
+	TWITTER & FACEBOOK
+*/
+.widget.PI_SimpleTwitterTweets,
+#text-6{
+	margin:0 0 0 65px;
+	width:20%;
+	color:#b7b7b7;
+}
 
+/*
+	FLICKR
+*/
+.widget.widget_flickr{
+	float:right;
+	width:40%;
+	color:#b7b7b7;
+}
