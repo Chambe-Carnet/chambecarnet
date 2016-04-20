@@ -273,6 +273,7 @@ header.site-header *{
 	SIDEBAR TOP
 */
 #top{
+	position:relative;
 	float:none;
 	margin:0;
 	padding:8.8em 65px 0;
@@ -393,53 +394,100 @@ header.site-header *{
 	PROCHAINT EVENT
 */
 .countdown-event-widget{
+	position:absolute;
+	bottom:0;
+	right:25px;
 	float:right;
-	padding:70px 50px 0 90px;
+	padding:80px 60px 0 100px;
 	width:30%;
 	background:url(images/fond-event-home.png) 0 0 no-repeat;
 	background-size:100% auto;
 }
 .countdown-event-widget .compteur{
     font-family: 'blanchcaps';
-	font-size:4em;
+	font-size:4.2em;
 	color:#80dde8;
 }
 .countdown-event-widget .categorie li{
 	list-style:none;
+	line-height:0.8;
 }
 .countdown-event-widget .categorie li a{
     font-family: 'blanchcaps';
-	font-size:3em;
+	font-size:2.8em;
 	font-style:italic;
 	color:#fff;
 }
+.countdown-event-widget .categorie li:hover a,
+.countdown-event-widget .categorie li a:hover,
+.countdown-event-widget .categorie li a:focus{
+	text-decoration:none;
+}
 .countdown-event-widget .tribe-event-title{
+	display:block;
+	margin:0 0 5px;
 	font-weight:normal;
+	line-height:0.6;
 }
 .countdown-event-widget .tribe-event-title a{
     font-family: 'blanchcaps';
-	font-size:3.5em;
+	font-size:4em;
 	color:#034a53;
+}
+.countdown-event-widget .tribe-event-title:hover a,
+.countdown-event-widget .tribe-event-title a:hover,
+.countdown-event-widget .tribe-event-title a:focus{
+	color:#fff;
+	text-decoration:none;
+}
+.countdown-event-widget .tribe-event-title a::before{
+	content:"";
+	position:absolute;
+	top:40px;
+	left:50px;
+	right:50px;
+	bottom:0;
 }
 .countdown-event-widget .sous-titre{
 	display:block;
-	font-size:1.5em;
+	margin:0 0 10px;
+	font-size:1.6em;
 	color:#034a53;
+
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+.countdown-event-widget:hover .sous-titre{
+	color:#fff;
 }
 .countdown-event-widget .intervenant{
 	display:block;
+	margin:0 0 15px;
 	font-size:1.5em;
 	font-style:italic;
 	color:#fff;
 }
 .countdown-event-widget .inscription{
 	display:inline-block;
+	margin:0 0 20px;
 	padding:5px 15px;
 	background:#034a53;
 	-webkit-border-radius:50px;
 	-moz-border-radius:50px;
 	border-radius:50px;
 	color:#fff;
+	font-size:1.2em;
+	font-weight:700;
+	text-transform:uppercase;
+}
+.countdown-event-widget:hover .inscription,
+.countdown-event-widget .inscription:hover,
+.countdown-event-widget .inscription:focus{
+	background:#fff;
+	color:#034a53;
 }
 
 /*
