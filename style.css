@@ -355,6 +355,7 @@ header.site-header *{
 	bottom:0;
 }
 .widget_fpw_widget a h3{
+	clear:none;
 	float:right;
 	margin:10px 0;
 	width:50%;
