@@ -58,5 +58,10 @@ get_header(); ?>
     </main><!-- .site-main -->
 </div><!-- .content-area -->
 
-<?php get_sidebar(); ?>
+<?php if (is_active_sidebar('sidebar-5')) : ?>
+    <section id="secondary" class="sidebar widget-area" role="complementary">
+        <?php dynamic_sidebar('sidebar-5'); ?>
+    </section><!-- .sidebar .widget-area -->
+<?php endif; ?>
+
 <?php get_footer(); ?>
