@@ -39,9 +39,9 @@ if ($posts) : ?>
                 <a href="<?php echo esc_url(tribe_get_event_link()); ?>" rel="bookmark"><?php the_title(); ?></a>
             </strong>
 
-            <p class="sous-titre">Ici la baseline de l'événement</p>
+            <p class="sous-titre"><?php echo get_post_meta($post->ID, 'event_baseline', true); ?></p>
 
-            <span class="intervenant">Animée par Robert</span>
+            <span class="intervenant">Animée par <?php echo get_post_meta($post->ID, 'event_animateur', true); ?></span>
 
             <a class="inscription" href="<?php echo esc_url(tribe_get_event_link()); ?>" rel="bookmark">Je m'inscris</a>
             <?php
