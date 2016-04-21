@@ -175,7 +175,8 @@ header.site-header *{
 	position:relative;
 }
 .main-navigation .current-menu-item::after,
-.main-navigation .current-menu-ancestor::after{
+.main-navigation .current-menu-ancestor::after,
+.single-job_listing .main-navigation .menu-item:nth-child(2)::after{
 	content:url(images/asso-on.png);
 	position:absolute;
 	top:100%;
@@ -187,6 +188,7 @@ header.site-header *{
 .main-navigation .current-menu-ancestor:nth-child(1)::after{
 	content:url(images/news-on.png);
 }
+.single-job_listing .main-navigation .menu-item:nth-child(2)::after,
 .main-navigation .current-menu-item:nth-child(2)::after,
 .main-navigation .current-menu-ancestor:nth-child(2)::after{
 	content:url(images/jobs-on.png);
@@ -248,7 +250,7 @@ header.site-header *{
 	padding-top:5.8em;
 }
 .site-header + #content{
-	padding-top:13.5em;
+	padding-top:18.5em;
 }
 
 /*
@@ -395,14 +397,29 @@ header.site-header *{
 	PROCHAINT EVENT
 */
 .countdown-event-widget{
+	position:relative;
+}
+#top .countdown-event-widget{
 	position:absolute;
 	bottom:0;
 	right:25px;
 	float:right;
 	padding:80px 60px 0 100px;
 	width:30%;
-	background:url(images/fond-event-home.png) 0 0 no-repeat;
+	background:url(images/fond-event-home.png) left bottom no-repeat;
 	background-size:100% auto;
+}
+.countdown-event-widget::before{
+	content:"";
+	position:absolute;
+	top:-60px;
+	right:-20px;
+	width:73px;
+	height:80px;
+	background:url(images/sprite.png) -165px -83px no-repeat;
+}
+#top .countdown-event-widget::before{
+	display:none;
 }
 .countdown-event-widget .compteur{
     font-family: 'blanchcaps';
@@ -417,6 +434,9 @@ header.site-header *{
     font-family: 'blanchcaps';
 	font-size:2.8em;
 	font-style:italic;
+	color:#00bad1;
+}
+#top .countdown-event-widget .categorie li a{
 	color:#fff;
 }
 .countdown-event-widget .categorie li:hover a,
@@ -438,8 +458,13 @@ header.site-header *{
 .countdown-event-widget .tribe-event-title:hover a,
 .countdown-event-widget .tribe-event-title a:hover,
 .countdown-event-widget .tribe-event-title a:focus{
-	color:#fff;
+	color:#00bad1;
 	text-decoration:none;
+}
+#top .countdown-event-widget .tribe-event-title:hover a,
+#top .countdown-event-widget .tribe-event-title a:hover,
+#top .countdown-event-widget .tribe-event-title a:focus{
+	color:#fff;
 }
 .countdown-event-widget .tribe-event-title a::before{
 	content:"";
@@ -462,6 +487,9 @@ header.site-header *{
 	transition: all 0.5s;
 }
 .countdown-event-widget:hover .sous-titre{
+	color:#00bad1;
+}
+#top .countdown-event-widget:hover .sous-titre{
 	color:#fff;
 }
 .countdown-event-widget .intervenant{
@@ -469,6 +497,9 @@ header.site-header *{
 	margin:0 0 15px;
 	font-size:1.5em;
 	font-style:italic;
+	color:#00bad1;
+}
+#top .countdown-event-widget .intervenant{
 	color:#fff;
 }
 .countdown-event-widget .inscription{
@@ -487,6 +518,12 @@ header.site-header *{
 .countdown-event-widget:hover .inscription,
 .countdown-event-widget .inscription:hover,
 .countdown-event-widget .inscription:focus{
+	background:#00bad1;
+	color:#fff;
+}
+#top .countdown-event-widget:hover .inscription,
+#top .countdown-event-widget .inscription:hover,
+#top .countdown-event-widget .inscription:focus{
 	background:#fff;
 	color:#034a53;
 }
@@ -704,16 +741,16 @@ article.type-post .entry-infos span{
 	margin:0!important;
 	line-height:1;
 }
-article.type-post:hover .entry-infos a{
+.category  article.type-post:hover .entry-infos a{
 	color:#1a2930;
 }
-article.type-post.category-news:hover .entry-infos a{
+.category  article.type-post.category-news:hover .entry-infos a{
 	color:#65771c;
 }
-article.type-post.category-events:hover .entry-infos a{
+.category  article.type-post.category-events:hover .entry-infos a{
 	color:#034a53;
 }
-article.type-post.category-jobs:hover .entry-infos a{
+.category  article.type-post.category-jobs:hover .entry-infos a{
 	color:#761414;
 }
 article.type-post .entry-infos .posted-on{
@@ -813,16 +850,21 @@ article.type-post .entry-summary{
 	-o-transition: all 0.5s;
 	transition: all 0.5s;
 }
-article.type-post:hover .entry-summary{
+.single article.type-post .entry-summary{
+	font-size:1.7em;
+	font-weight:400;
+	line-height:1.2;
+}
+.category article.type-post:hover .entry-summary{
 	color:#1a2930;
 }
-article.type-post.category-news:hover .entry-summary{
+.category article.type-post.category-news:hover .entry-summary{
 	color:#65771c;
 }
-article.type-post.category-events:hover .entry-summary{
+.category article.type-post.category-events:hover .entry-summary{
 	color:#034a53;
 }
-article.type-post.category-jobs:hover .entry-summary{
+.category article.type-post.category-jobs:hover .entry-summary{
 	color:#761414;
 }
 .home article.type-post .entry-summary{
@@ -864,6 +906,30 @@ article.type-post .entry-content{
 	margin:40px 30px 10px!important;
 	width:auto!important;
 	font-size:1.4em;
+	line-height:1.4;
+}
+article.type-post .entry-content img{
+	max-width:100%;
+}
+article.type-post .entry-content a,
+article.type-post .entry-content a:visited{
+	border-bottom:1px dotted #4c4c4c;
+	box-shadow:none;
+	color:#4c4c4c;
+	text-decoration:none;
+}
+article.type-post .entry-content a:hover,
+article.type-post .entry-content a:focus{
+	border-bottom:1px solid #4c4c4c;
+}
+article.type-post .entry-content ul{
+	margin:0 0 1.75em 30px;
+}
+article.type-post .entry-content ul li{
+	list-style-type:disc;
+}
+article.type-post .entry-content ul li + li{
+	margin:10px 0 0;
 }
 
 /*------------------------------------------------------------------------------------------------------------
@@ -993,18 +1059,31 @@ nav.navigation.post-navigation{
 	padding:5px 30px; 
 	background:#607D8B;
 }
+nav.navigation.post-navigation .nav-links > div > a{
+	padding:5px 0;
+	font-weight:700;
+}
+nav.navigation.post-navigation .nav-links > div > a:hover,
+nav.navigation.post-navigation .nav-links > div > a:focus{
+	border:none;
+	text-decoration:none;
+}
+nav.navigation.post-navigation .nav-links > div.nav-previous > a{
+	padding-left:20px;
+	background:url(images/precedent.png) 0 0.5em no-repeat;
+}
+nav.navigation.post-navigation .nav-links > div.nav-next > a{
+	padding-right:20px;
+	background:url(images/suivant.png) right 0.5em no-repeat;
+}
 
-/*------------------------------------------------------------------------------------------------------------*/
-/*
-	= PAGE D'ACCUEIL
-*/
-/*------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------
+	== COMMENTAIRES
+------------------------------------------------------------------------------------------------------------*/
+#comments{
+	margin:50px 0 0;
+}
 
-/*------------------------------------------------------------------------------------------------------------*/
-/*
-	= PAGE DE DETAIL D'UN BILLET
-*/
-/*------------------------------------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------------------------------------*/
 /*
@@ -1056,6 +1135,13 @@ form.job_filters .showing_jobs{
 /*------------------------------------------------------------------------------------------------------------
 	== LISTE
 ------------------------------------------------------------------------------------------------------------*/
+#post-7870 h1.entry-title{
+	margin:0 0 10px;
+	font-weight:300;
+	font-size:2.8em;
+	font-family:"open sans";
+	color:#ff6b6b;
+}
 .entry-content .job_listings{}
 .entry-content .job_listings > ul > li,
 .entry-content .rp4wp-related-job_listing > ul li.job_listing,
@@ -1093,11 +1179,32 @@ form.job_filters .showing_jobs{
 .entry-content .rp4wp-related-job_listing > ul li.job_listing a div.position h3,
 .entry-content .rp4wp-related-job_listing > ul li.no_job_listings_found a div.position h3,
 .entry-content ul.job_listings li.job_listing a div.position h3,
-.entry-content ul.job_listings li.no_job_listings_found a div.position h3{
+.entry-content ul.job_listings li.no_job_listings_found a div.position h3,
+.entry-content .rp4wp-related-job_listing > ul li.job_listing a:visited div.position h3,
+.entry-content .rp4wp-related-job_listing > ul li.no_job_listings_found a:visited div.position h3,
+.entry-content ul.job_listings li.job_listing a:visited div.position h3,
+.entry-content ul.job_listings li.no_job_listings_found a:visited div.position h3{
 	font-size:2em;
 	font-family: 'Open Sans', sans-serif;
 	font-weight:300;
 	line-height:1;
+	color:#4c4c4c;
+
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+.entry-content .rp4wp-related-job_listing > ul li.job_listing a:hover div.position h3,
+.entry-content .rp4wp-related-job_listing > ul li.no_job_listings_found a:hover div.position h3,
+.entry-content ul.job_listings li.job_listing a:hover div.position h3,
+.entry-content ul.job_listings li.no_job_listings_found a:hover div.position h3,
+.entry-content .rp4wp-related-job_listing > ul li.job_listing a:focus div.position h3,
+.entry-content .rp4wp-related-job_listing > ul li.no_job_listings_found a:focus div.position h3,
+.entry-content ul.job_listings li.job_listing a:focus div.position h3,
+.entry-content ul.job_listings li.no_job_listings_found a:focus div.position h3{
+	color:#000;
 }
 .entry-content .job_listings ul li .position,
 .entry-content .rp4wp-related-job_listing > ul li.job_listing a div.position,
@@ -1123,7 +1230,7 @@ form.job_filters .showing_jobs{
 	content:"";
 	display:inline-block;
 	width:22px;
-	height:33px;
+	height:27px;
 	background:url(images/sprite.png) -55px -55px no-repeat;
 	vertical-align:middle;
 }
@@ -1152,7 +1259,7 @@ form.job_filters .showing_jobs{
 	content:"";
 	display:inline-block;
 	width:22px;
-	height:33px;
+	height:27px;
 	background:url(images/sprite.png) 0 -55px no-repeat;
 	vertical-align:middle;
 }
@@ -1218,7 +1325,91 @@ div.job_listings a.load_more_jobs:focus{
 /*------------------------------------------------------------------------------------------------------------
 	== DETAIL
 ------------------------------------------------------------------------------------------------------------*/
+article.type-job_listing{
+	background:#fff;
+}
 
+/*
+	HEADER
+*/
+article.type-job_listing .entry-header{
+	margin:30px 30px 20px;
+}
+article.type-job_listing .entry-header h1{
+	margin:0;
+    font-family: 'blanchcaps';
+	font-weight:normal;
+	font-size:6em;
+	line-height:0.7;
+	color:#4c4c4c;
+}
+
+/*
+	TEXTE
+*/
+article.type-job_listing .entry-content{
+	float:none!important;
+	margin:40px 30px 10px!important;
+	width:auto!important;
+	font-size:1.4em;
+	line-height:1.4;
+}
+article.type-job_listing .entry-content h2{
+	margin:40px 0 10px;
+	font-size:3em;
+	font-weight:normal;
+	line-height:1;	
+}
+article.type-job_listing .entry-content img{
+	max-width:100%;
+}
+article.type-job_listing .entry-content a,
+article.type-job_listing .entry-content a:visited{
+	border-bottom:1px dotted #4c4c4c;
+	box-shadow:none;
+	color:#4c4c4c;
+	text-decoration:none;
+}
+article.type-job_listing .entry-content a:hover,
+article.type-job_listing .entry-content a:focus{
+	border-bottom:1px solid #4c4c4c;
+}
+article.type-job_listing .entry-content ul{
+	margin:0 0 1.75em 30px;
+}
+article.type-job_listing .entry-content ul li{
+	list-style-type:disc;
+}
+article.type-job_listing .entry-content ul li + li{
+	margin:10px 0 0;
+}
+
+/*
+	POSTULER
+*/
+article.type-job_listing .job_application{
+	margin:0 0 20px;
+}
+article.type-job_listing .job_application input{
+	background:#4c4c4c;
+	-webkit-border-radius:50px;
+	-moz-border-radius:50px;
+	border-radius:50px;
+	font-family:"open sans";
+	color:#ff6b6b;
+	text-transform:none;
+	letter-spacing:normal;
+
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+article.type-job_listing .job_application input:hover{
+	background:#ff6b6b;
+	color:#4c4c4c;
+}
 
 /*------------------------------------------------------------------------------------------------------------*/
 /*
@@ -1304,7 +1495,18 @@ footer.site-footer section.sidebar{
 #text-6{
 	margin:0 0 0 65px;
 	width:20%;
+	font-size:1.2em;
 	color:#b7b7b7;
+}
+.widget.PI_SimpleTwitterTweets ul li + li{
+	margin:5px 0 0;
+}
+.widget.PI_SimpleTwitterTweets ul li a{
+	color:#b7b7b7;
+}
+.widget.PI_SimpleTwitterTweets ul li a:hover,
+.widget.PI_SimpleTwitterTweets ul li a:focus{
+	color:#fff;
 }
 
 /*
