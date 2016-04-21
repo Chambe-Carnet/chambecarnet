@@ -908,6 +908,12 @@ article.type-post .entry-content{
 	font-size:1.4em;
 	line-height:1.4;
 }
+article.type-post .entry-content h2{
+	margin:40px 0 10px;
+	font-size:3em;
+	font-weight:normal;
+	line-height:1;	
+}
 article.type-post .entry-content img{
 	max-width:100%;
 }
@@ -930,6 +936,20 @@ article.type-post .entry-content ul li{
 }
 article.type-post .entry-content ul li + li{
 	margin:10px 0 0;
+}
+
+/*
+	GALLERIE
+*/
+article.type-post .entry-content .gallery{
+	margin:0 0 20px;
+}
+article.type-post .entry-content .gallery .gallery-item{
+	padding:0 0 20px;
+	overflow:hidden;
+}
+article.type-post .entry-content .gallery .gallery-item div{
+	float:left;
 }
 
 /*------------------------------------------------------------------------------------------------------------
@@ -1084,10 +1104,78 @@ nav.navigation.post-navigation .nav-links > div.nav-next > a{
 	margin:50px 0 0;
 }
 
+/*------------------------------------------------------------------------------------------------------------*/
+/*
+	= PAGES EVENTS
+*/
+/*------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------
+	== DETAIL
+------------------------------------------------------------------------------------------------------------*/
+.single #tribe-events{
+	background:#fff;
+}
+
+/*
+	HEADER
+*/
+.single #tribe-events h1{
+	margin:30px 30px 20px;
+    font-family: 'blanchcaps';
+	font-weight:normal;
+	font-size:6em;
+	line-height:0.7;
+	color:#4c4c4c;
+}
+
+/*
+	IMAGE
+*/
+.single #tribe-events .tribe-events-image{
+	padding:0 30px;
+}
+
+/*
+	TEXTE
+*/
+.single #tribe-events .tribe-events-content{
+	padding:0 30px;
+	font-size:1.4em;
+	line-height:1.4;
+}
+.single #tribe-events .tribe-events-content h2{
+	margin:40px 0 10px;
+	font-size:3em;
+	font-weight:normal;
+	line-height:1;	
+}
+.single #tribe-events .tribe-events-content img{
+	max-width:100%;
+}
+.single #tribe-events .tribe-events-content a,
+.single #tribe-events .tribe-events-content a:visited{
+	border-bottom:1px dotted #4c4c4c;
+	box-shadow:none;
+	color:#4c4c4c;
+	text-decoration:none;
+}
+.single #tribe-events .tribe-events-content a:hover,
+.single #tribe-events .tribe-events-content a:focus{
+	border-bottom:1px solid #4c4c4c;
+}
+.single #tribe-events .tribe-events-content ul{
+	margin:0 0 1.75em 30px;
+}
+.single #tribe-events .tribe-events-content ul li{
+	list-style-type:disc;
+}
+.single #tribe-events .tribe-events-content ul li + li{
+	margin:10px 0 0;
+}
 
 /*------------------------------------------------------------------------------------------------------------*/
 /*
-	= PAGE JOBS
+	= PAGES JOBS
 */
 /*------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------------
