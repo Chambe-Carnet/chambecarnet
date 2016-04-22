@@ -401,13 +401,17 @@ header.site-header *{
 }
 #top .countdown-event-widget{
 	position:absolute;
+	top:8.8em;
 	bottom:0;
 	right:25px;
 	float:right;
-	padding:80px 60px 0 100px;
-	width:30%;
+	padding:6% 4% 0 7%;
+	width:35%;
 	background:url(images/fond-event-home.png) left bottom no-repeat;
-	background-size:100% auto;
+	background-size:100% 95%;
+}
+.logged-in #top .countdown-event-widget{
+	top:6.8em;
 }
 .countdown-event-widget::before{
 	content:"";
@@ -419,7 +423,9 @@ header.site-header *{
 	background:url(images/sprite.png) -165px -83px no-repeat;
 }
 #top .countdown-event-widget::before{
-	display:none;
+	top:15%;
+	left:5%;
+	background:url(images/sprite.png) -247px -83px no-repeat;
 }
 .countdown-event-widget .compteur{
     font-family: 'blanchcaps';
@@ -741,16 +747,20 @@ article.type-post .entry-infos span{
 	margin:0!important;
 	line-height:1;
 }
-.category  article.type-post:hover .entry-infos a{
+.category  article.type-post:hover .entry-infos a,
+.home  article.type-post:hover .entry-infos a{
 	color:#1a2930;
 }
-.category  article.type-post.category-news:hover .entry-infos a{
+.category  article.type-post.category-news:hover .entry-infos a,
+.home  article.type-post.category-news:hover .entry-infos a{
 	color:#65771c;
 }
-.category  article.type-post.category-events:hover .entry-infos a{
+.category  article.type-post.category-events:hover .entry-infos a,
+.home  article.type-post.category-events:hover .entry-infos a{
 	color:#034a53;
 }
-.category  article.type-post.category-jobs:hover .entry-infos a{
+.category  article.type-post.category-jobs:hover .entry-infos a,
+.home  article.type-post.category-jobs:hover .entry-infos a{
 	color:#761414;
 }
 article.type-post .entry-infos .posted-on{
@@ -908,6 +918,12 @@ article.type-post .entry-content{
 	font-size:1.4em;
 	line-height:1.4;
 }
+article.type-post .entry-content h2{
+	margin:40px 0 10px;
+	font-size:3em;
+	font-weight:normal;
+	line-height:1;	
+}
 article.type-post .entry-content img{
 	max-width:100%;
 }
@@ -930,6 +946,20 @@ article.type-post .entry-content ul li{
 }
 article.type-post .entry-content ul li + li{
 	margin:10px 0 0;
+}
+
+/*
+	GALLERIE
+*/
+article.type-post .entry-content .gallery{
+	margin:0 0 20px;
+}
+article.type-post .entry-content .gallery .gallery-item{
+	padding:0 0 20px;
+	overflow:hidden;
+}
+article.type-post .entry-content .gallery .gallery-item div{
+	float:left;
 }
 
 /*------------------------------------------------------------------------------------------------------------
@@ -957,6 +987,13 @@ nav.navigation .meta-nav{
 nav.navigation .post-title{
 	position:absolute;
 	top:-500000px;
+}
+
+/*
+  	POUR LA HOME
+*/
+.home nav.navigation{
+	clear:both;
 }
 
 /*
@@ -1084,10 +1121,78 @@ nav.navigation.post-navigation .nav-links > div.nav-next > a{
 	margin:50px 0 0;
 }
 
+/*------------------------------------------------------------------------------------------------------------*/
+/*
+	= PAGES EVENTS
+*/
+/*------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------
+	== DETAIL
+------------------------------------------------------------------------------------------------------------*/
+.single #tribe-events{
+	background:#fff;
+}
+
+/*
+	HEADER
+*/
+.single #tribe-events h1{
+	margin:30px 30px 20px;
+    font-family: 'blanchcaps';
+	font-weight:normal;
+	font-size:6em;
+	line-height:0.7;
+	color:#4c4c4c;
+}
+
+/*
+	IMAGE
+*/
+.single #tribe-events .tribe-events-image{
+	padding:0 30px;
+}
+
+/*
+	TEXTE
+*/
+.single #tribe-events .tribe-events-content{
+	padding:0 30px;
+	font-size:1.4em;
+	line-height:1.4;
+}
+.single #tribe-events .tribe-events-content h2{
+	margin:40px 0 10px;
+	font-size:3em;
+	font-weight:normal;
+	line-height:1;	
+}
+.single #tribe-events .tribe-events-content img{
+	max-width:100%;
+}
+.single #tribe-events .tribe-events-content a,
+.single #tribe-events .tribe-events-content a:visited{
+	border-bottom:1px dotted #4c4c4c;
+	box-shadow:none;
+	color:#4c4c4c;
+	text-decoration:none;
+}
+.single #tribe-events .tribe-events-content a:hover,
+.single #tribe-events .tribe-events-content a:focus{
+	border-bottom:1px solid #4c4c4c;
+}
+.single #tribe-events .tribe-events-content ul{
+	margin:0 0 1.75em 30px;
+}
+.single #tribe-events .tribe-events-content ul li{
+	list-style-type:disc;
+}
+.single #tribe-events .tribe-events-content ul li + li{
+	margin:10px 0 0;
+}
 
 /*------------------------------------------------------------------------------------------------------------*/
 /*
-	= PAGE JOBS
+	= PAGES JOBS
 */
 /*------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------------
@@ -1423,6 +1528,7 @@ footer.site-footer{
 footer.site-footer section.sidebar{
 	float:none;
 	margin:0;
+	padding:0;
 	width:100%;
 	overflow:hidden;
 }
@@ -1492,28 +1598,121 @@ footer.site-footer section.sidebar{
 	TWITTER & FACEBOOK
 */
 .widget.PI_SimpleTwitterTweets,
-#text-6{
+.widget_rfb_widget{
 	margin:0 0 0 65px;
 	width:20%;
 	font-size:1.2em;
 	color:#b7b7b7;
 }
-.widget.PI_SimpleTwitterTweets ul li + li{
-	margin:5px 0 0;
+.widget.PI_SimpleTwitterTweets ul li + li,
+.widget_rfb_widget .rfbp-post{
+	margin:8px 0 0;
 }
-.widget.PI_SimpleTwitterTweets ul li a{
+.widget.PI_SimpleTwitterTweets ul li a,
+.widget_rfb_widget .rfbp-post h4 a,
+.widget_rfb_widget .rfbp-post p a{
 	color:#b7b7b7;
 }
 .widget.PI_SimpleTwitterTweets ul li a:hover,
-.widget.PI_SimpleTwitterTweets ul li a:focus{
+.widget.PI_SimpleTwitterTweets ul li a:focus,
+.widget_rfb_widget .rfbp-post h4 a:hover,
+.widget_rfb_widget .rfbp-post h4 a:focus,
+.widget_rfb_widget .rfbp-post p a:hover,
+.widget_rfb_widget .rfbp-post p a:focus{
 	color:#fff;
+}
+.widget_rfb_widget .rfbp-post h4{
+	margin:0;
+	font-family:"open sans";
+	font-size:1em;
+	line-height:1.2;
+}
+.widget_rfb_widget .rfbp-post p{
+	margin:0;
+	line-height:1.2;
+}
+.widget_rfb_widget .rfbp-post p .rfbp-timestamp{
+	font-style:italic;
+}
+.widget_rfb_widget .rfbp-post p img{
+	display:inline-block;
+	margin:3px 0;
 }
 
 /*
 	FLICKR
 */
-.widget.widget_flickr{
+#text-6{
 	float:right;
 	width:40%;
 	color:#b7b7b7;
+	font-size:1.2em;
 }
+
+
+
+
+
+
+
+
+
+
+
+/*------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------*/
+
+
+
+/*------------------------------------------------------------------------------------------------------------*/
+/*
+	= AJUSTEMENT TAILLE D'ECRAN
+*/
+/*------------------------------------------------------------------------------------------------------------*/
+
+@media only screen and (max-width: 1240px){
+	/* FOOTER */
+	#text-6{
+		width:35%;
+	}
+}
+@media only screen and (max-width: 1024px){
+	/* STRUCTURE */
+	header.site-header,
+	#content,
+	footer.site-footer{
+		padding-left:30px;
+		padding-right:30px;
+	}
+	#site-header-menu{
+		right:30px;
+	}
+	#primary{
+		width:60%;
+	}
+	#secondary{
+		padding:0;
+		width:35%;
+	}
+}
+@media only screen and (max-width: 800px){
+	/* FOOTER */
+	.widget.PI_SimpleTwitterTweets,
+	.widget_rfb_widget{
+		width:35%;
+	}
+	#text-6{
+		clear:both;
+		float:none;
+		margin:0 0 0 110px;
+		padding:50px 0 0;
+		width:100%;
+	}
+}
+
+
+
+
+
+
