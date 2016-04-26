@@ -39,9 +39,19 @@ if ($posts) : ?>
                 <a href="<?php echo esc_url(tribe_get_event_link()); ?>" rel="bookmark"><?php the_title(); ?></a>
             </strong>
 
-            <p class="sous-titre"><?php echo get_post_meta($post->ID, 'event_baseline', true); ?></p>
-
-            <span class="intervenant">Animée par <?php echo get_post_meta($post->ID, 'event_animateur', true); ?></span>
+        <?php
+        $event_baseline = get_post_meta($post->ID, 'event_baseline', true);
+        if (!empty($event_baseline)) {
+        ?>
+            <p class="sous-titre"><?php echo $event_baseline; ?></p>
+        <?php } ?>
+    
+        <?php
+        $event_animateur = get_post_meta($post->ID, 'event_animateur', true);
+        if (!empty($event_animateur)) {
+        ?>
+            <span class="intervenant">Animée par <?php echo $event_animateur; ?></span>
+        <?php } ?>
 
             <a class="inscription" href="<?php echo esc_url(tribe_get_event_link()); ?>" rel="bookmark">Je m'inscris</a>
             <?php
