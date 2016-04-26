@@ -43,8 +43,16 @@ X8888  X888h        888E .z8k     us888u.  ~`8888~'888X`?888f`  9888.z88N    ud8
 	<?php endif; ?>
 	<?php wp_head(); ?>
 </head>
-
-<body <?php body_class(); ?>>
+<?php 
+$class = '';
+$categories = get_the_category();
+if (!empty($categories)) {
+    foreach ($categories as $categ) {
+        $class .= ' '.$categ->slug;
+    }
+}
+?>
+<body <?php body_class($class); ?>>
 <div id="page" class="site">
 	<div class="site-inner">
 		<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentysixteen' ); ?></a>
