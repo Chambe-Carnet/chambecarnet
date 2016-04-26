@@ -269,6 +269,7 @@ header.site-header *{
 	margin-left:-2px;
 	width:4px;
 	background:#fff;
+        margin-bottom: 30px;
 }
 
 /*
@@ -879,6 +880,13 @@ article.type-post .entry-summary{
 }
 .home article.type-post .entry-summary{
 	margin-bottom:20px!important;
+}
+.home #pbd-alp-load-posts {
+    clear: both;
+    display: block;
+    margin: auto;
+    padding-top: 15px;
+    width: 10%;
 }
 
 /*
