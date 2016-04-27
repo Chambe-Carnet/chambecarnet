@@ -740,7 +740,7 @@ article.type-post + article.type-post{
 	display:inline-block;
 	paffing:20px 0 0;
 	background:#F3F3EB;
-	color:#4c4c4c;
+	color:#9f9f9b;
 	font-size:1.3em;
 }
 .home #pbd-alp-load-posts a::before{
@@ -753,6 +753,7 @@ article.type-post + article.type-post{
 }
 .home #pbd-alp-load-posts a:hover,
 .home #pbd-alp-load-posts a:focus{
+	color:#4c4c4c;
 	text-decoration:none;
 }
 
