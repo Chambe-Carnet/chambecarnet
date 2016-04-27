@@ -64,3 +64,27 @@ function chambecarnet_get_list_widget_events()
 {
     return apply_filters('chambecarnet_get_list_widget_events', Countdown_Event_Widget::$posts);
 }
+
+# Override du script js du plugin pbd-ajax-load-posts
+add_action('wp_enqueue_scripts', 'load_posts_ajax');
+function load_posts_ajax()
+{
+    global $wp_query;
+    wp_dequeue_script('pbd-alp-load-posts');
+    wp_enqueue_script('load-posts', get_stylesheet_directory_uri().'/js/load-posts.js', array('jquery'), '', true);
+    
+    // What page are we on? And what is the pages limit?
+    $max = $wp_query->max_num_pages;
+    $paged = ( get_query_var('paged') > 1 ) ? get_query_var('paged') : 1;
+
+    // Add some parameters for the JS.
+    wp_localize_script(
+        'load-posts',
+        'pbd_alp',
+        array(
+            'startPage' => $paged,
+            'maxPages' => $max,
+            'nextLink' => next_posts($max, false)
+        )
+    );
+}
