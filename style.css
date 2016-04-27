@@ -280,7 +280,6 @@ header.site-header *{
 	margin-left:-2px;
 	width:4px;
 	background:#fff;
-        margin-bottom: 30px;
 }
 
 /*
@@ -729,6 +728,36 @@ article.type-post + article.type-post{
 }
 
 /*
+	LIEN PLUS
+*/
+.home #pbd-alp-load-posts{
+	position:relative;
+	padding:20px 0 0;
+    clear: both;
+	text-align:center;
+}
+.home #pbd-alp-load-posts a{
+	display:inline-block;
+	paffing:20px 0 0;
+	background:#F3F3EB;
+	color:#9f9f9b;
+	font-size:1.3em;
+}
+.home #pbd-alp-load-posts a::before{
+	content:"▼";
+	display:block;
+	margin:0 0 10px;
+	color:#fff;
+	font-size:2em;
+	line-height:0.5;
+}
+.home #pbd-alp-load-posts a:hover,
+.home #pbd-alp-load-posts a:focus{
+	color:#4c4c4c;
+	text-decoration:none;
+}
+
+/*
 	INFOS
 */
 article.type-post .entry-infos{
@@ -891,13 +920,6 @@ article.type-post .entry-summary{
 }
 .home article.type-post .entry-summary{
 	margin-bottom:20px!important;
-}
-.home #pbd-alp-load-posts {
-    clear: both;
-    display: block;
-    margin: auto;
-    padding-top: 15px;
-    width: 10%;
 }
 
 /*
@@ -1119,7 +1141,8 @@ nav.navigation.post-navigation{
 .news nav.navigation.post-navigation{
 	background:#c6f364;
 }
-.jobs nav.navigation.post-navigation{
+.jobs nav.navigation.post-navigation,
+.single-job_listing nav.navigation.post-navigation{
 	background:#ff6b6b;
 }
 .events nav.navigation.post-navigation{
@@ -1591,6 +1614,7 @@ div.job_listings a.load_more_jobs:focus{
 	== DETAIL
 ------------------------------------------------------------------------------------------------------------*/
 article.type-job_listing{
+	margin:0;
 	background:#fff;
 }
 

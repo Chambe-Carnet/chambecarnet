@@ -22,6 +22,14 @@
 				'</span>'
 			);
 		?>
+        
+        
+        <?php if ( is_singular('job_listing')  ) : ?>
+        <li class="date-posted" itemprop="datePosted"><date><?php printf( __( 'Posted %s ago', 'wp-job-manager' ), human_time_diff( get_post_time( 'U' ), current_time( 'timestamp' ) ) ); ?></date></li>
+        <?php endif; ?>
+        
+        
+        
 	</div><!-- .entry-footer -->
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
