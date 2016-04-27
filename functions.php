@@ -4,7 +4,7 @@ add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 function theme_enqueue_styles()
 {
     wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
-    wp_enqueue_script( 'jquery-countdown', get_stylesheet_directory_uri() . '/js/jquery.countdown.min.js', array(), '', true );
+    wp_enqueue_script('jquery-countdown', get_stylesheet_directory_uri() . '/js/jquery.countdown.min.js', array(), '', true);
 
 }
 
@@ -71,11 +71,11 @@ function load_posts_ajax()
 {
     global $wp_query;
     wp_dequeue_script('pbd-alp-load-posts');
-    wp_enqueue_script('load-posts', get_stylesheet_directory_uri().'/js/load-posts.js', array('jquery'), '', true);
-    
+    wp_enqueue_script('load-posts', get_stylesheet_directory_uri() . '/js/load-posts.js', array('jquery'), '', true);
+
     // What page are we on? And what is the pages limit?
     $max = $wp_query->max_num_pages;
-    $paged = ( get_query_var('paged') > 1 ) ? get_query_var('paged') : 1;
+    $paged = (get_query_var('paged') > 1) ? get_query_var('paged') : 1;
 
     // Add some parameters for the JS.
     wp_localize_script(
