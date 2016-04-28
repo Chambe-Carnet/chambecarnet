@@ -25,9 +25,6 @@ $more = false;
     the_post(); ?>
     <?php do_action('tribe_events_inside_before_loop'); ?>
 
-    <!-- Month / Year Headers -->
-    <?php tribe_events_list_the_date_headers(); ?>
-
     <!-- Event  -->
     <?php
     $post_parent = '';
@@ -36,7 +33,8 @@ $more = false;
     }
     ?>
     <article id="post-<?php the_ID() ?>" class="<?php tribe_events_event_classes() ?>" <?php echo $post_parent; ?>>
-        <?php tribe_get_template_part('list/single', 'event') ?>
+        <div class="evenenemt"><?php tribe_get_template_part('list/single', 'event') ?></div>
+       
         <?php
         $tags = wp_get_post_tags($post->ID, array('fields' => 'ids'));
         foreach ($tags as $tag) {
@@ -76,7 +74,7 @@ $more = false;
             endif;
         }
         ?>
-</div>
+        </article>
 
 
 <?php do_action('tribe_events_inside_after_loop'); ?>

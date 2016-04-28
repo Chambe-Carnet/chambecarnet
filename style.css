@@ -1309,6 +1309,139 @@ nav.navigation.post-navigation .nav-links > div.nav-next > a{
 	= PAGES EVENTS
 */
 /*------------------------------------------------------------------------------------------------------------*/
+.events-list .tribe-events-loop,
+.single-tribe_organizer .tribe-events-loop,
+.single-tribe_venue .tribe-events-loop,
+.tribe-events-day .tribe-events-loop{
+	max-width:none;
+}
+
+/*------------------------------------------------------------------------------------------------------------
+	== LISTE
+------------------------------------------------------------------------------------------------------------*/
+article.type-tribe_events{
+	padding:0!important;
+}
+article.type-tribe_events + article.type-tribe_events{
+	margin-top:50px!important;
+}
+
+/*
+	EVENEMENT
+*/
+article.type-tribe_events .evenenemt{
+	position:relative;
+	padding:20px 22% 20px 50px;
+	background:#fff;
+	overflow:hidden;
+}
+article.type-tribe_events .evenenemt h2{
+	font-size:5em;
+	font-weight:normal;
+	line-height:1;
+}
+article.type-tribe_events .evenenemt h2 a{
+	color:#4c4c4c;
+	text-decoration:none;
+	box-shadow:none!important;
+}
+article.type-tribe_events .evenenemt .tribe-events-event-meta{
+	position:absolute;
+	top:0;
+	right:0;
+	bottom:0;
+	margin:0;
+	padding:20px;
+	width:20%;
+	background:#00bad1;
+}
+article.type-tribe_events .evenenemt .tribe-events-list-event-description p{
+	margin:0!important;
+	font-size:1.4em;
+	line-height:1.4!important;
+}
+
+/*
+	ARTCILE EN RELATION
+*/
+article.type-tribe_events .tribe-events-list-related-content article{
+	position:relative;
+	margin:10px 0 0;
+	padding:20px 20px 20px 50px!important;
+	background:#fff;
+	overflow:hidden;
+}
+article.type-tribe_events .tribe-events-list-related-content article::before{
+	content:"";
+	position:absolute;
+	top:20px;
+	left:15px;
+	height:30px;
+	width:30px;
+	background-image:url(images/sprite.png);
+	background-position:-110px -172px;
+}
+article.type-tribe_events .tribe-events-list-related-content article.category-interview::before{
+	background-position:0 -172px;
+}
+article.type-tribe_events .tribe-events-list-related-content article.category-intervenants::before{
+	background-position:-55px -172px;
+}
+article.type-tribe_events .tribe-events-list-related-content article.category-participants::before{
+	background-position:-165px -172px;
+}
+article.type-tribe_events .tribe-events-list-related-content article.category-compte-rendu::before{
+	background-position:-208px -172px;
+}
+article.type-tribe_events .tribe-events-list-related-content article.category-sondage::before{
+	background-position:-247px -172px;
+}
+article.type-tribe_events .tribe-events-list-related-content article::after{
+	content:"▼";
+	position:absolute;
+	top:-9px;
+	right:5%;
+	font-size:6em;
+	line-height:0;
+	color:#f3f3eb;
+}
+article.type-tribe_events .tribe-events-list-related-content article h2{
+	margin:0;
+	font-weight:300;
+	font-size:2em;
+	line-height:1;
+}
+article.type-tribe_events .tribe-events-list-related-content article h2 a,
+article.type-tribe_events .tribe-events-list-related-content article h2 a:visited{
+	box-shadow:none!important;
+	color:#4c4c4c;
+}
+article.type-tribe_events .tribe-events-list-related-content article:hover h2 a,
+article.type-tribe_events .tribe-events-list-related-content article h2 a:hover,
+article.type-tribe_events .tribe-events-list-related-content article h2 a:focus,
+article.type-tribe_events .tribe-events-list-related-content article:hover p{
+	color:#00bad1;
+}
+article.type-tribe_events .tribe-events-list-related-content article h2 a::before{
+	content:"";
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+}
+article.type-tribe_events .tribe-events-list-related-content article p{
+	margin:10px 0 0;
+	font-size:1.4em;
+	line-height:1.5;
+
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
 /*------------------------------------------------------------------------------------------------------------
 	== DETAIL
 ------------------------------------------------------------------------------------------------------------*/
