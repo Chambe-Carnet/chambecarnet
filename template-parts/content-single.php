@@ -9,53 +9,54 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<div class="entry-infos">
-		<?php twentysixteen_entry_single_meta(); ?>
-		<?php
-			edit_post_link(
-				sprintf(
-					/* translators: %s: Name of current post */
-					__( 'Edit<span class="screen-reader-text"> "%s"</span>', 'twentysixteen' ),
-					get_the_title()
-				),
-				'<span class="edit-link">',
-				'</span>'
-			);
-		?>
-        
-        
-        <?php if ( is_singular('job_listing')  ) : ?>
-        <li class="date-posted" itemprop="datePosted"><date><?php printf( __( 'Posted %s ago', 'wp-job-manager' ), human_time_diff( get_post_time( 'U' ), current_time( 'timestamp' ) ) ); ?></date></li>
+    <div class="entry-infos">
+        <?php twentysixteen_entry_single_meta(); ?>
+        <?php
+        edit_post_link(
+            sprintf(
+            /* translators: %s: Name of current post */
+                __('Edit<span class="screen-reader-text"> "%s"</span>', 'twentysixteen'),
+                get_the_title()
+            ),
+            '<span class="edit-link">',
+            '</span>'
+        );
+        ?>
+
+
+        <?php if (is_singular('job_listing')) : ?>
+            <li class="date-posted" itemprop="datePosted">
+                <date><?php printf(__('Posted %s ago', 'wp-job-manager'), human_time_diff(get_post_time('U'), current_time('timestamp'))); ?></date>
+            </li>
         <?php endif; ?>
-        
-        
-        
-	</div><!-- .entry-footer -->
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
 
-	<?php twentysixteen_excerpt(); ?>
 
-	<?php twentysixteen_post_thumbnail(); ?>
+    </div><!-- .entry-footer -->
+    <header class="entry-header">
+        <?php the_title('<h1 class="entry-title">', '</h1>'); ?>
+    </header><!-- .entry-header -->
 
-	<div class="entry-content">
-		<?php
-			the_content();
+    <?php twentysixteen_excerpt(); ?>
 
-			wp_link_pages( array(
-				'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentysixteen' ) . '</span>',
-				'after'       => '</div>',
-				'link_before' => '<span>',
-				'link_after'  => '</span>',
-				'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'twentysixteen' ) . ' </span>%',
-				'separator'   => '<span class="screen-reader-text">, </span>',
-			) );
+    <?php twentysixteen_post_thumbnail(); ?>
 
-			if ( '' !== get_the_author_meta( 'description' ) ) {
-				get_template_part( 'template-parts/biography' );
-			}
-		?>
-	</div><!-- .entry-content -->
+    <div class="entry-content">
+        <?php
+        the_content();
+
+        wp_link_pages(array(
+            'before' => '<div class="page-links"><span class="page-links-title">' . __('Pages:', 'twentysixteen') . '</span>',
+            'after' => '</div>',
+            'link_before' => '<span>',
+            'link_after' => '</span>',
+            'pagelink' => '<span class="screen-reader-text">' . __('Page', 'twentysixteen') . ' </span>%',
+            'separator' => '<span class="screen-reader-text">, </span>',
+        ));
+
+        if ('' !== get_the_author_meta('description')) {
+            get_template_part('template-parts/biography');
+        }
+        ?>
+    </div><!-- .entry-content -->
 
 </article><!-- #post-## -->
