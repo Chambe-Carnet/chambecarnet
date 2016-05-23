@@ -1331,14 +1331,16 @@ article.type-tribe_events + article.type-tribe_events{
 */
 article.type-tribe_events .evenenemt{
 	position:relative;
-	padding:20px 22% 20px 50px;
+	padding:30px 22% 30px 50px;
 	background:#fff;
 	overflow:hidden;
 }
 article.type-tribe_events .evenenemt h2{
+	display:block;
+	margin:0 0 10px;
 	font-size:5em;
 	font-weight:normal;
-	line-height:1;
+	line-height:0.8;
 }
 article.type-tribe_events .evenenemt h2 a{
 	color:#4c4c4c;
@@ -1354,6 +1356,29 @@ article.type-tribe_events .evenenemt .tribe-events-event-meta{
 	padding:20px;
 	width:20%;
 	background:#00bad1;
+}
+article.type-tribe_events .evenenemt .tribe-events-event-image{
+	position:absolute;
+	top:0;
+	right:20%;
+	bottom:0;
+	margin:0;
+	width:30%;
+	overflow:hidden;
+}
+article.type-tribe_events .evenenemt .tribe-events-event-image a,
+article.type-tribe_events .evenenemt .tribe-events-event-image a img{
+	display:block;
+	height:100%;
+	width:auto;
+	max-width:none;
+}
+article.type-tribe_events .evenenemt .tribe-events-list-event-description{
+	float:none;
+	width:auto;
+}
+article.type-tribe_events .evenenemt .tribe-events-event-image + .tribe-events-list-event-description{
+	padding-right:42%;
 }
 article.type-tribe_events .evenenemt .tribe-events-list-event-description p{
 	margin:0!important;
@@ -1400,10 +1425,10 @@ article.type-tribe_events .tribe-events-list-related-content article::after{
 	content:"▼";
 	position:absolute;
 	top:-9px;
-	right:5%;
+	right:7%;
 	font-size:6em;
 	line-height:0;
-	color:#f3f3eb;
+	color:#00BAD1;
 }
 article.type-tribe_events .tribe-events-list-related-content article h2{
 	margin:0;
@@ -1440,6 +1465,25 @@ article.type-tribe_events .tribe-events-list-related-content article p{
 	-ms-transition: all 0.5s;
 	-o-transition: all 0.5s;
 	transition: all 0.5s;
+}
+
+/*
+	PAGINATION
+*/
+.events-list #tribe-events-footer{
+	padding:0;
+	border:none;
+}
+.events-list #tribe-events-footer a{
+	font-size:1.2em;
+	color:#4c4c4c;
+}
+.events-list #tribe-events-footer a:hover,
+.events-list #tribe-events-footer a:focus{
+	color:#000;
+}
+.tribe-events-ical{
+	display:none!important;
 }
 
 /*------------------------------------------------------------------------------------------------------------

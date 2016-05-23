@@ -23,14 +23,12 @@ $event_id = get_the_ID();
 
 <div id="tribe-events-content" class="tribe-events-single">
 
-	<p class="tribe-events-back">
+	<!--<p class="tribe-events-back">
 		<a href="<?php echo esc_url( tribe_get_events_link() ); ?>"> <?php printf( '&laquo; ' . esc_html__( 'All %s', 'the-events-calendar' ), $events_label_plural ); ?></a>
-	</p>
+	</p>-->
 
 	<!-- Notices -->
 	<?php tribe_the_notices() ?>
-
-	<?php the_title( '<h1 class="tribe-events-single-event-title">', '</h1>' ); ?>
 
 	<div class="tribe-events-schedule tribe-clearfix">
 		<?php echo tribe_events_event_schedule_details( $event_id, '<h2>', '</h2>' ); ?>
@@ -38,7 +36,26 @@ $event_id = get_the_ID();
 			<span class="tribe-events-divider">|</span>
 			<span class="tribe-events-cost"><?php echo tribe_get_cost( null, true ) ?></span>
 		<?php endif; ?>
+        
+        <?php
+		echo tribe_get_event_categories(
+			get_the_id(), array(
+				'before'       => '',
+				'sep'          => ', ',
+				'after'        => '',
+				'label'        => null, // An appropriate plural/singular label will be provided
+				'label_before' => '<span class="category">',
+				'label_after'  => '</span>',
+				'wrap_before'  => '<span>',
+				'wrap_after'   => '</span>',
+			)
+		);
+		?>
+
 	</div>
+
+	<?php the_title( '<h1 class="tribe-events-single-event-title">', '</h1>' ); ?>
+
 
 	<!-- Event header -->
 	<div id="tribe-events-header" <?php tribe_events_the_header_attributes() ?>>
