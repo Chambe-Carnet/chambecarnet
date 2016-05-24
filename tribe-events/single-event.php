@@ -33,28 +33,27 @@ $event_id = get_the_ID();
 	<div class="tribe-events-schedule tribe-clearfix">
 		<?php echo tribe_events_event_schedule_details( $event_id, '<h2>', '</h2>' ); ?>
 		<?php if ( tribe_get_cost() ) : ?>
-			<span class="tribe-events-divider">|</span>
 			<span class="tribe-events-cost"><?php echo tribe_get_cost( null, true ) ?></span>
 		<?php endif; ?>
-        
-        <?php
-		echo tribe_get_event_categories(
-			get_the_id(), array(
-				'before'       => '',
-				'sep'          => ', ',
-				'after'        => '',
-				'label'        => null, // An appropriate plural/singular label will be provided
-				'label_before' => '<span class="category">',
-				'label_after'  => '</span>',
-				'wrap_before'  => '<span>',
-				'wrap_after'   => '</span>',
-			)
-		);
-		?>
+
+        <span class="category"><?php echo tribe_get_event_taxonomy() ?></span>
 
 	</div>
 
 	<?php the_title( '<h1 class="tribe-events-single-event-title">', '</h1>' ); ?>
+    <?php
+    $event_baseline = get_post_meta($event_id, 'event_baseline', true);
+    if (!empty($event_baseline)) {
+        ?>
+        <p class="sous-titre"><?php echo $event_baseline; ?></p>
+    <?php } ?>
+
+    <?php
+    $event_animateur = get_post_meta($event_id, 'event_animateur', true);
+    if (!empty($event_animateur)) {
+        ?>
+        <span class="intervenant">Animée par <?php echo $event_animateur; ?></span>
+    <?php } ?>
 
 
 	<!-- Event header -->
