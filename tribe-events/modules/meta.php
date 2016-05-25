@@ -19,6 +19,7 @@ $set_venue_apart = apply_filters( 'tribe_events_single_event_the_meta_group_venu
 
 <div class="infos-pratique">
 <span>Infos pratiques</span>
+<div>
 <?php if ( $not_skeleton ) : ?>
 	<div class="tribe-events-single-section tribe-events-event-meta primary tribe-clearfix">
 <?php endif; ?>
@@ -72,7 +73,7 @@ do_action( 'tribe_events_single_event_meta_primary_section_end' );
 	if ( $not_skeleton ) : ?>
 		</div>
 	<?php endif; ?>
-</div>
+</div></div>
 <?php
 endif;
 do_action( 'tribe_events_single_meta_after' );
