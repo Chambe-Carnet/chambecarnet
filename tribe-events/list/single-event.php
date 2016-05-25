@@ -60,7 +60,7 @@ if (!empty($event_animateur)) {
 
             <!-- Schedule & Recurrence Details -->
             <div class="tribe-event-schedule-details">
-                <?php echo tribe_events_event_schedule_details() ?>
+                <?php echo tribe_get_start_date(null, false, 'j.m.Y') ?>
             </div>
 
             <!-- Event Cost -->
@@ -73,7 +73,7 @@ if (!empty($event_animateur)) {
             <?php if ($venue_details) : ?>
                 <!-- Venue Display Info -->
                 <div class="tribe-events-venue-details">
-                    <?php echo implode(', ', $venue_details); ?>
+                    <?php echo implode(' ', $venue_details); ?>
                 </div> <!-- .tribe-events-venue-details -->
             <?php endif; ?>
 
