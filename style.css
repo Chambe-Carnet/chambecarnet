@@ -200,10 +200,11 @@ header.site-header *{
 .jobs .main-navigation .menu-item:nth-child(2)::after{
 	content:url(images/jobs-on.png);
 }
+.single-tribe_events .main-navigation .menu-item:nth-child(3)::after,
 .main-navigation .current-menu-item:nth-child(3)::after,
 .main-navigation .current-menu-ancestor:nth-child(3)::after,
 .events .main-navigation .menu-item:nth-child(3)::after{
-	content:url(images/events-on.png);
+	content:url(images/event-on.png);
 }
 .asso .main-navigation .menu-item:nth-child(4)::after{
 	content:url(images/asso-on.png);
@@ -760,7 +761,8 @@ article.type-post + article.type-post{
 /*
 	INFOS
 */
-article.type-post .entry-infos{
+article.type-post .entry-infos,
+article.type-job_listing .entry-infos{
 	padding:5px 30px; 
 	background:#607D8B;
     font-family: 'blanchcaps';
@@ -777,7 +779,8 @@ article.type-post.category-news .entry-infos{
 article.type-post.category-events .entry-infos{
 	background:#00BAD1;
 }
-article.type-post.category-jobs .entry-infos{
+article.type-post.category-jobs .entry-infos,
+article.type-job_listing .entry-infos{
 	background:#FF6B6B;
 }
 article.type-post .entry-infos a{
@@ -829,6 +832,10 @@ article.type-post .entry-infos .edit-link{
 article.type-post .entry-infos .edit-link a:hover,
 article.type-post .entry-infos .edit-link a:focus{
 	color:#fff !important;
+}
+article.type-job_listing .entry-infos li{
+	list-style:none;
+	line-height:1;
 }
 
 /*
@@ -1491,16 +1498,15 @@ article.type-tribe_events .evenenemt .tribe-events-event-meta .tribe-event-inscr
 /*
 	ARTCILE EN RELATION
 */
-article.type-tribe_events .tribe-events-list-related-content {
+/*article.type-tribe_events .tribe-events-list-related-content {
 	width: 90%;
 	float: right;
-}
+}*/
 article.type-tribe_events .tribe-events-list-related-content article{
 	position:relative;
-	margin:10px 0 0;
+	margin:10px 0 0 50px;
 	padding:20px 20px 20px 50px!important;
 	background:#fff;
-	overflow:hidden;
 }
 article.type-tribe_events .tribe-events-list-related-content article::before{
 	content:"";
@@ -1528,13 +1534,13 @@ article.type-tribe_events .tribe-events-list-related-content article.category-so
 	background-position:-247px -172px;
 }
 article.type-tribe_events .tribe-events-list-related-content article::after{
-	content:"▼";
+	content:"";
 	position:absolute;
-	top:-9px;
-	right:7%;
-	font-size:7em;
-	line-height:0;
-	color:#00BAD1;
+	top:0;
+	left:-50px;
+	height:54px;
+	width:43px;
+	background:url(images/fleche.png) 0 0 no-repeat;
 }
 article.type-tribe_events .tribe-events-list-related-content article h2{
 	margin:0;
@@ -1918,6 +1924,12 @@ form.job_filters .showing_jobs{
 	font-size:1.4em;
 	color:#4c4c4c;
 }
+.entry-content .rp4wp-related-job_listing > ul li.job_listing a div.position .company .tagline,
+.entry-content .rp4wp-related-job_listing > ul li.no_job_listings_found a div.position .company .tagline,
+.entry-content ul.job_listings li.job_listing a div.position .company .tagline,
+.entry-content ul.job_listings li.no_job_listings_found a div.position .company .tagline{
+	font-style:italic;
+}
 .entry-content .rp4wp-related-job_listing > ul li.job_listing a div.position .company::before,
 .entry-content .rp4wp-related-job_listing > ul li.no_job_listings_found a div.position .company::before,
 .entry-content ul.job_listings li.job_listing a div.position .company::before,
@@ -2038,6 +2050,74 @@ article.type-job_listing .entry-header h1{
 	font-size:6em;
 	line-height:0.7;
 	color:#4c4c4c;
+}
+
+/*
+	INFOS JOB
+*/
+article.type-job_listing .entry-content .infos-company{
+	margin:0 0 50px;
+	overflow:hidden;
+}
+article.type-job_listing .entry-content .infos-company img{
+	float:left;
+	margin:0 20px 0 0;
+	max-width:100px;
+	height:auto;
+}
+article.type-job_listing .entry-content .infos-company ul{
+	margin:0;
+	list-style:none;
+	overflow:hidden;
+}
+article.type-job_listing .entry-content .infos-company ul li{
+	float:left;
+	margin:0 0 5px;
+	width:45%;
+	list-style:none;
+}
+article.type-job_listing .entry-content .infos-company ul li:nth-child(even){
+	clear:left;
+}
+article.type-job_listing .entry-content .infos-company ul li.job-type{
+	float:none;
+	margin:0 0 20px;
+	width:100%;
+    font-family: 'blanchcaps';
+	font-size:2.4em;
+	color:#ff6b6b;
+}
+article.type-job_listing .entry-content .infos-company ul li::before{
+	content:"";
+	display:inline-block;
+	width:22px;
+	height:23px;
+	background-image:url(images/sprite.png);
+	vertical-align:bottom;
+}
+article.type-job_listing .entry-content .infos-company ul li.job-type::before{
+	display:none;
+}
+article.type-job_listing .entry-content .infos-company ul li.nom-company::before{
+	background-position:-55px -55px;
+}
+article.type-job_listing .entry-content .infos-company ul li.twitter-company::before{
+	background-position:-110px -55px;
+}
+article.type-job_listing .entry-content .infos-company ul li.location::before{
+	background-position:0 -55px;
+}
+article.type-job_listing .entry-content .infos-company ul li.website-compagny::before{
+	background-position:-165px -55px;
+}
+article.type-job_listing .entry-content .infos-company ul li p{
+	margin:0;
+	font-style:italic;
+}
+article.type-job_listing .entry-content .infos-company ul li a,
+article.type-job_listing .entry-content .infos-company ul li a:hover,
+article.type-job_listing .entry-content .infos-company ul li a:focus{
+	border:none;
 }
 
 /*
