@@ -9,11 +9,11 @@
  */
 
 
-$time_format = get_option( 'time_format', Tribe__Date_Utils::TIMEFORMAT );
+$time_format = 'H:i';
 $time_range_separator = tribe_get_option( 'timeRangeSeparator', ' - ' );
 
 $start_datetime = tribe_get_start_date();
-$start_date = tribe_get_start_date( null, false );
+$start_date = tribe_get_start_date( null, false, 'j.m.Y' );
 $start_time = tribe_get_start_date( null, false, $time_format );
 $start_ts = tribe_get_start_date( null, false, Tribe__Date_Utils::DBDATEFORMAT );
 
@@ -142,6 +142,7 @@ $website = tribe_get_event_website_link();
         	<?php if ( tribe_address_exists() ) : ?>
 			<dd class="tribe-venue-location">
 				<address class="tribe-events-address">
+					<span class="tribe-venue-name"><?php echo tribe_get_venue(); ?></span>
 					<?php echo tribe_get_full_address(); ?>
 
 					<?php if ( tribe_show_google_map_link() ) : ?>
