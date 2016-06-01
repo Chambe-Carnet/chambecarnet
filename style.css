@@ -465,7 +465,7 @@ header.site-header *{
 	display:block;
 	margin:0 0 5px;
 	font-weight:normal;
-	line-height:0.6;
+	line-height:0.8;
 }
 .countdown-event-widget .tribe-event-title a{
     font-family: 'blanchcaps';
@@ -1491,6 +1491,10 @@ article.type-tribe_events .evenenemt .tribe-events-event-meta .tribe-event-inscr
 /*
 	ARTCILE EN RELATION
 */
+article.type-tribe_events .tribe-events-list-related-content {
+	width: 90%;
+	float: right;
+}
 article.type-tribe_events .tribe-events-list-related-content article{
 	position:relative;
 	margin:10px 0 0;
@@ -1528,7 +1532,7 @@ article.type-tribe_events .tribe-events-list-related-content article::after{
 	position:absolute;
 	top:-9px;
 	right:7%;
-	font-size:6em;
+	font-size:7em;
 	line-height:0;
 	color:#00BAD1;
 }
