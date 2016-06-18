@@ -948,7 +948,7 @@ article.type-post .entry-summary{
     color: #ffffff;
     font-size: 11px;
     font-weight: bold;
-    padding: 5px 0;
+    padding: 10px;
     text-transform: uppercase;
 }
 .home #pbd-alp-load-posts > a:hover {
