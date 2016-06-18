@@ -16,7 +16,7 @@ jQuery(document).ready(function($) {
         if (pageNum <= max) {
             // Insert the "More Posts" link.
             $('#main').addClass('pbd-alp-placeholder-'+ pageNum )
-                .append('<p id="pbd-alp-load-posts"><a href="#">Load More Posts</a></p>');
+                .append('<p id="pbd-alp-load-posts"><a href="#"><span class="text">Posts suivants</span></a><img class="load" src="/wp-content/themes/chambecarnet/images/load.png" /></p>');
 
             // Remove the traditional navigation.
             $('.navigation').remove();
@@ -30,11 +30,14 @@ jQuery(document).ready(function($) {
             e.preventDefault();
             var main = $('#main');
             var link = $(this);
+            var parent = link.parent();
+            var loader = $('img.load', parent);
             // Are there more posts to load?
             if (pageNum <= max) {
-
+                
                 // Show that we're working.
-                $(this).text('Loading posts...');
+                link.hide();
+                loader.show();
 
                 $.ajax({
                     type:'POST',
@@ -54,7 +57,8 @@ jQuery(document).ready(function($) {
 
                     // Update the button message.
                     if (pageNum <= max) {
-                        link.text('Load More Posts');
+                        loader.hide();
+                        link.show();
                     } 
                     else {
                         link.remove();
