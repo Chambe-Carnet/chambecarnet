@@ -934,13 +934,41 @@ article.type-post .entry-summary{
 .home article.type-post .entry-summary{
 	margin-bottom:20px!important;
 }
+.home #pbd-alp-load-posts {
+    clear: both;
+    display: block;
+    margin: auto;
+    padding-top: 15px;
+    width: 10%;
+}
+.home #pbd-alp-load-posts > a {
+    background: #4c4c4c none repeat scroll 0 0;
+    border-radius: 0;
+    box-shadow: none;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 10px;
+    text-transform: uppercase;
+}
+.home #pbd-alp-load-posts > a:hover {
+    background: #ffffff none repeat scroll 0 0;
+    color: #4c4c4c;
+}
+.home #pbd-alp-load-posts img {
+    display: none;
+    height: 15px;
+    margin-left: 20%;
+    width: 60%;
+}
 
 /*
 	IMAGE UNE
 */
 article.type-post a.post-thumbnail{
-	margin:20px 0 0;
-	overflow:hidden;
+    max-height: 250px;
+    margin:20px 0 0;
+    overflow:hidden;
 }
 article.type-post a.post-thumbnail img{
 	display:block;
