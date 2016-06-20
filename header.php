@@ -61,20 +61,20 @@ if (!empty($categories)) {
             <div class="site-header-main">
 
                 <div class="site-branding">
-                    <?php if (get_header_image()) : ?>
-                        <?php
-                        /**
-                         * Filter the default twentysixteen custom header sizes attribute.
-                         *
-                         * @since Twenty Sixteen 1.0
-                         *
-                         * @param string $custom_header_sizes sizes attribute
-                         * for Custom Header. Default '(max-width: 709px) 85vw,
-                         * (max-width: 909px) 81vw, (max-width: 1362px) 88vw, 1200px'.
-                         */
-                        $custom_header_sizes = apply_filters('twentysixteen_custom_header_sizes', '(max-width: 709px) 85vw, (max-width: 909px) 81vw, (max-width: 1362px) 88vw, 1200px');
-                        ?>
-                        <div class="header-image">
+                    <div class="header-image">
+                        <?php if (get_header_image()) : ?>
+                            <?php
+                            /**
+                             * Filter the default twentysixteen custom header sizes attribute.
+                             *
+                             * @since Twenty Sixteen 1.0
+                             *
+                             * @param string $custom_header_sizes sizes attribute
+                             * for Custom Header. Default '(max-width: 709px) 85vw,
+                             * (max-width: 909px) 81vw, (max-width: 1362px) 88vw, 1200px'.
+                             */
+                            $custom_header_sizes = apply_filters('twentysixteen_custom_header_sizes', '(max-width: 709px) 85vw, (max-width: 909px) 81vw, (max-width: 1362px) 88vw, 1200px');
+                            ?>
                             <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
                                 <img src="<?php header_image(); ?>"
                                      srcset="<?php echo esc_attr(wp_get_attachment_image_srcset(get_custom_header()->attachment_id)); ?>"
@@ -83,21 +83,20 @@ if (!empty($categories)) {
                                      height="<?php echo esc_attr(get_custom_header()->height); ?>"
                                      alt="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>">
                             </a>
-                        </div><!-- .header-image -->
-                    <?php endif; // End header image check. ?>
+                        <?php endif; // End header image check. ?>
+                        <?php if (is_front_page() && is_home()) : ?>
+                            <h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>"
+                                                      rel="home"><?php bloginfo('name'); ?></a></h1>
+                        <?php else : ?>
+                            <p class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>"
+                                                     rel="home"><?php bloginfo('name'); ?></a></p>
+                        <?php endif;
 
-                    <?php if (is_front_page() && is_home()) : ?>
-                        <h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>"
-                                                  rel="home"><?php bloginfo('name'); ?></a></h1>
-                    <?php else : ?>
-                        <p class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>"
-                                                 rel="home"><?php bloginfo('name'); ?></a></p>
-                    <?php endif;
-
-                    $description = get_bloginfo('description', 'display');
-                    if ($description || is_customize_preview()) : ?>
-                        <p class="site-description"><?php echo $description; ?></p>
-                    <?php endif; ?>
+                        $description = get_bloginfo('description', 'display');
+                        if ($description || is_customize_preview()) : ?>
+                            <p class="site-description"><?php echo $description; ?></p>
+                        <?php endif; ?>
+                    </div><!-- .header-image -->
                 </div><!-- .site-branding -->
 
                 <?php if (has_nav_menu('primary') || has_nav_menu('social')) : ?>
