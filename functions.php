@@ -42,6 +42,29 @@ function chambecarnet_register_sidebars()
             'after_title' => '</h2>',
         )
     );
+
+    register_sidebar(
+        array(
+            'name' => 'Sidebar Asso Top',
+            'id' => 'sidebar-6',
+            'description' => 'Sidebar Asso Top',
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget' => '</section>',
+            'before_title' => '<h2 class="widget-title">',
+            'after_title' => '</h2>',
+        )
+    );
+    register_sidebar(
+        array(
+            'name' => 'Sidebar Asso Left',
+            'id' => 'sidebar-7',
+            'description' => 'Sidebar Asso Left',
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget' => '</section>',
+            'before_title' => '<h2 class="widget-title">',
+            'after_title' => '</h2>',
+        )
+    );
 }
 
 /**
