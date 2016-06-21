@@ -22,35 +22,44 @@ $has_venue_address = (!empty($venue_details['address'])) ? ' location' : '';
 $organizer = tribe_get_organizer();
 
 ?>
-    <!-- Event Image -->
-<?php echo tribe_event_featured_image(null, 'medium') ?>
 
+<div id="event-content">
     <!-- Event Title -->
-<?php do_action('tribe_events_before_the_event_title') ?>
-    <h2 class="tribe-events-list-event-title">
-        <a class="tribe-event-url" href="<?php echo esc_url(tribe_get_event_link()); ?>"
-           title="<?php the_title_attribute() ?>" rel="bookmark">
-            <?php the_title() ?>
-        </a>
-    </h2>
+    <?php do_action('tribe_events_before_the_event_title') ?>
+        <h2 class="tribe-events-list-event-title">
+            <a class="tribe-event-url" href="<?php echo esc_url(tribe_get_event_link()); ?>"
+               title="<?php the_title_attribute() ?>" rel="bookmark">
+                <?php the_title() ?>
+            </a>
+        </h2>
 
-<?php
-$event_baseline = get_post_meta(get_the_ID(), 'event_baseline', true);
-if (!empty($event_baseline)) {
-    ?>
-    <p class="sous-titre"><?php echo $event_baseline; ?></p>
-<?php } ?>
+    <?php
+    $event_baseline = get_post_meta(get_the_ID(), 'event_baseline', true);
+    if (!empty($event_baseline)) {
+        ?>
+        <p class="sous-titre"><?php echo $event_baseline; ?></p>
+    <?php } ?>
 
-<?php
-$event_animateur = get_post_meta(get_the_ID(), 'event_animateur', true);
-if (!empty($event_animateur)) {
-    ?>
-    <span class="intervenant">Animée par <?php echo $event_animateur; ?></span>
-<?php } ?>
+    <?php
+    $event_animateur = get_post_meta(get_the_ID(), 'event_animateur', true);
+    if (!empty($event_animateur)) {
+        ?>
+        <span class="intervenant">Animée par <?php echo $event_animateur; ?></span>
+    <?php } ?>
 
-<?php do_action('tribe_events_after_the_event_title') ?>
+    <?php do_action('tribe_events_after_the_event_title') ?>
 
-    <!-- Event Meta -->
+    <!-- Event Content -->
+    <?php do_action('tribe_events_before_the_content') ?>
+    <div class="tribe-events-list-event-description tribe-events-content">
+        <?php echo tribe_events_get_the_excerpt(null, wp_kses_allowed_html('post')); ?>
+    </div><!-- .tribe-events-list-event-description -->
+</div>
+
+<!-- Event Image -->
+<?php echo tribe_event_featured_image(null, 'medium') ?>
+    
+<!-- Event Meta -->
 <?php do_action('tribe_events_before_the_meta') ?>
     <div class="tribe-events-event-meta">
         <div class="author <?php echo esc_attr($has_venue_address); ?>">
@@ -94,10 +103,5 @@ if (!empty($event_animateur)) {
     </div><!-- .tribe-events-event-meta -->
 <?php do_action('tribe_events_after_the_meta') ?>
 
-    <!-- Event Content -->
-<?php do_action('tribe_events_before_the_content') ?>
-    <div class="tribe-events-list-event-description tribe-events-content">
-        <?php echo tribe_events_get_the_excerpt(null, wp_kses_allowed_html('post')); ?>
-    </div><!-- .tribe-events-list-event-description -->
 <?php
 do_action('tribe_events_after_the_content');
