@@ -88,6 +88,18 @@ function chambecarnet_get_list_widget_events()
     return apply_filters('chambecarnet_get_list_widget_events', Countdown_Event_Widget::$posts);
 }
 
+function register_compterendu_widget()
+{
+    register_widget('Compte_Rendu_Widget');
+}
+
+add_action('widgets_init', 'register_compterendu_widget');
+
+function chambecarnet_get_comptes_rendus_widget()
+{
+    return apply_filters('chambecarnet_get_comptes_rendus_widget', Compte_Rendu_Widget::$posts);
+}
+
 # Override du script js du plugin pbd-ajax-load-posts
 add_action('wp_enqueue_scripts', 'load_posts_ajax');
 function load_posts_ajax()
