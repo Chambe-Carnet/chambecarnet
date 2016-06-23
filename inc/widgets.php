@@ -377,11 +377,11 @@ class Projets_Widget extends WP_Widget
         global $wp_query, $tribe_ecp, $post;
 
         $args = array(
-            'category'      => 23,
-            'numberposts'   => $instance['nb_items']
+            'meta_key'      => '_wp_page_template',
+            'meta_value'    => 'page-projet.php'
         );
-
-        self::$posts = get_posts($args);
+        
+        self::$posts = get_pages($args);
         // If no posts, and the don't show if no posts checked, let's bail
         if (empty(self::$posts) || empty($instance['nb_items'])) {
             return 'pouet';
