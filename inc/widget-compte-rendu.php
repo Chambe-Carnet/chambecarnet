@@ -1,6 +1,6 @@
 <?php
 /**
- * Countdown Widget Template
+ * Compte Rendu Widget Template
  */
 if (!defined('ABSPATH')) {
     die('-1');
