@@ -1,31 +1,31 @@
 <?php
 /**
- * Compte Rendu Widget Template
+ * Projets Widget Template
  */
 if (!defined('ABSPATH')) {
     die('-1');
 }
 
-$posts = chambecarnet_get_comptes_rendus_widget();
+$posts = chambecarnet_get_projets_widget();
 
 // Check if any event posts are found.
 if ($posts) : ?>
-    <div class="compterendu-widget">
-        <h2 class="widget-title">Derniers comptes rendus</h2>
+    <div class="projets-widget">
+        <h2 class="widget-title">Derniers projets</h2>
         <?php
         // Setup the post data for each event.
         foreach ($posts as $post) :
             setup_postdata($post);
         ?>
-            <div class="compterendu">
-                <a class="img" href="<?php echo esc_url(get_permalink()); ?>">
-                    <?php the_post_thumbnail(); ?>
-                </a>
-                
+            <div class="projet">
                 <a class="title" href="<?php echo esc_url(get_permalink()); ?>">
                     <strong>
                         <?php the_title(); ?>
                     </strong>
+                </a>
+                
+                <a class="excerpt" href="<?php echo esc_url(get_permalink()); ?>">
+                    <?php the_excerpt(); ?>
                 </a>
             </div>
         <?php
@@ -37,6 +37,6 @@ if ($posts) : ?>
 // No posts find
 else : 
 ?>
-    <p><?php printf(esc_html__('Aucun compte rendu n\'est disponible', 'chambecarnet')); ?></p>
+    <p><?php printf(esc_html__('Aucun projet n\'est disponible', 'chambecarnet')); ?></p>
 <?php
 endif;
