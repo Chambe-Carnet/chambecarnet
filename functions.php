@@ -88,6 +88,31 @@ function chambecarnet_get_list_widget_events()
     return apply_filters('chambecarnet_get_list_widget_events', Countdown_Event_Widget::$posts);
 }
 
+function register_compterendu_widget()
+{
+    register_widget('Compte_Rendu_Widget');
+}
+
+add_action('widgets_init', 'register_compterendu_widget');
+
+function chambecarnet_get_comptes_rendus_widget()
+{
+    return apply_filters('chambecarnet_get_comptes_rendus_widget', Compte_Rendu_Widget::$posts);
+}
+
+function register_projets_widget()
+{
+    register_widget('Projets_Widget');
+}
+
+add_action('widgets_init', 'register_projets_widget');
+
+function chambecarnet_get_projets_widget()
+{
+    return apply_filters('chambecarnet_get_projets_widget', Projets_Widget::$posts);
+}
+
+
 # Override du script js du plugin pbd-ajax-load-posts
 add_action('wp_enqueue_scripts', 'load_posts_ajax');
 function load_posts_ajax()
@@ -110,4 +135,12 @@ function load_posts_ajax()
             'nextLink' => next_posts($max, false)
         )
     );
+}
+
+# Gestion du style de la liste des events
+add_action('wp_enqueue_scripts', 'style_list_events');
+function style_list_events()
+{
+    wp_enqueue_script('events', get_stylesheet_directory_uri() . '/js/list-events.js', array(), '', true);
+
 }
