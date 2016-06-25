@@ -1246,6 +1246,11 @@ article.type-post a.post-thumbnail img{
 	-o-transition: all 0.5s;
 	transition: all 0.5s;
 }
+article.type-post div.post-thumbnail img{
+	display:block;
+	margin: 10px 0 0;
+	width:100%;
+}
 article.type-post:hover a.post-thumbnail img,
 article.type-post a.post-thumbnail:hover img,
 article.type-post a.post-thumbnail:focus img{
@@ -1949,19 +1954,19 @@ article.type-tribe_events .tribe-events-list-related-content article::before{
 	background-image:url(images/sprite.png);
 	background-position:-110px -172px;
 }
-article.type-tribe_events .tribe-events-list-related-content article.category-interview::before{
+article.type-tribe_events .tribe-events-list-related-content article.tag-interview::before{
 	background-position:0 -172px;
 }
-article.type-tribe_events .tribe-events-list-related-content article.category-intervenants::before{
+article.type-tribe_events .tribe-events-list-related-content article.tag-intervenants::before{
 	background-position:-55px -172px;
 }
-article.type-tribe_events .tribe-events-list-related-content article.category-participants::before{
+article.type-tribe_events .tribe-events-list-related-content article.tag-participants::before{
 	background-position:-165px -172px;
 }
-article.type-tribe_events .tribe-events-list-related-content article.category-compte-rendu::before{
+article.type-tribe_events .tribe-events-list-related-content article.tag-compte-rendu::before{
 	background-position:-208px -172px;
 }
-article.type-tribe_events .tribe-events-list-related-content article.category-sondage::before{
+article.type-tribe_events .tribe-events-list-related-content article.tag-sondage::before{
 	background-position:-247px -172px;
 }
 article.type-tribe_events .tribe-events-list-related-content article::after{
