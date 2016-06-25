@@ -597,16 +597,16 @@ header.site-header *{
 /*
 	GOURMAND DU WEB
 */
-#top #text-7{
+#top #text-4{
 	position:relative;
 	margin:30px auto;
 	max-width:900px;
 }
-#top #text-7 h1{
+#top #text-4 h1{
 	position:absolute;
 	top:-50000px;
 }
-#top #text-7 .nous{
+#top #text-4 .nous{
 	position:relative;
 	float:left;
 	width:35%;
@@ -614,11 +614,11 @@ header.site-header *{
 	font-size:1.4em;
 	line-height:1.4;
 }
-#top #text-7 .nous + .nous{
+#top #text-4 .nous + .nous{
 	float:right;
 	text-align:right;
 }
-#top #text-7 .nous:first-child::before{
+#top #text-4 .nous:first-child::before{
 	content:"“";
 	position:absolute;
 	top:0;
@@ -626,7 +626,7 @@ header.site-header *{
 	font-size:2em;
 	line-height:1;
 }
-#top #text-7 .nous + .nous::before{
+#top #text-4 .nous + .nous::before{
 	content:"”";
 	position:absolute;
 	bottom:0;
@@ -634,12 +634,12 @@ header.site-header *{
 	font-size:2em;
 	line-height:0;
 }
-#top #text-7 .president{
+#top #text-4 .president{
 	clear:both;
 	padding:20px 0 0;
 	text-align:center;
 }
-#top #text-7 .president::before{
+#top #text-4 .president::before{
 	content:url(images/jihaisse.png);
 	position:absolute;
 	top:0;
@@ -648,7 +648,7 @@ header.site-header *{
 	height:166px;
 	text-align:center;
 }
-#top #text-7 .president strong{
+#top #text-4 .president strong{
 	display:block;
 	margin:10px 0 0;
 	font-weight:normal;
@@ -657,7 +657,7 @@ header.site-header *{
 	color:#607d8b;
 	line-height:0.6;
 }
-#top #text-7 .president em{
+#top #text-4 .president em{
 	display:block;
 	margin:0 0 10px;
     font-family: 'blanchcaps';
@@ -665,7 +665,7 @@ header.site-header *{
 	color:#607d8b;
 	line-height:1;
 }
-#top #text-7 .president span{
+#top #text-4 .president span{
 	font-size:1.3em;
 	font-style:italic;
 	color:#607d8b;
@@ -674,27 +674,27 @@ header.site-header *{
 /*
 	TYPES D'EVENT
 */
-#content #text-8 h2{
+#content #text-5 h2{
 	color:#00bad1;
 }
-#content #text-8 ul li{
+#content #text-5 ul li{
 	display:inline-block;
 	width:45%;
 	font-size:1.4em;
 	line-height:1.4;
 	vertical-align:top;
 }
-#content #text-8 ul li + li{
+#content #text-5 ul li + li{
 	margin-left:9%;
 }
-#content #text-8 ul li strong{
+#content #text-5 ul li strong{
 	display:block;
 	margin:0 0 10px;
 }
-#content #text-8 ul li p{
+#content #text-5 ul li p{
 	margin:0;
 }
-#content #text-8 a{
+#content #text-5 a{
 	display:inline-block;
 	padding:5px	15px;
 	background:#00bad1;
@@ -703,8 +703,8 @@ header.site-header *{
 	font-size:1.3em;
 	text-transform:uppercase;
 }
-#content #text-8 a:hover,
-#content #text-8 a:focus{
+#content #text-5 a:hover,
+#content #text-5 a:focus{
 	background:#000;
 	text-decoration:none;
 }
@@ -712,26 +712,26 @@ header.site-header *{
 /*
 	COMMUNAUTE
 */
-#content #text-9 > div > p{
+#content #text-6 > div > p{
 	float:left;
 	width:20%;
 	font-size:1.4em;
 	line-height:1.4;
 }
-#content #text-9 ul{
+#content #text-6 ul{
 	float:right;
 	width:80%;
 }
-#content #text-9 ul li{
+#content #text-6 ul li{
 	display:inline-block;
 	position:relative;
 	padding:10px 10px 0;
 }
-#content #text-9 ul li.espace-membre{
+#content #text-6 ul li.espace-membre{
 	display:block;
 	margin:10px 0 0;
 }
-#content #text-9 ul li.espace-membre a{
+#content #text-6 ul li.espace-membre a{
 	padding:0 0 0 10px;
 	background:url(images/chevron.png) 0 0.2em no-repeat;
 	box-shadow:none;
@@ -739,17 +739,17 @@ header.site-header *{
 	font-size:1.1em;
 	font-weight:700;
 }
-#content #text-9 ul li img{
+#content #text-6 ul li img{
 	-webkit-transition: all 0.5s;
 	-moz-transition: all 0.5s;
 	-ms-transition: all 0.5s;
 	-o-transition: all 0.5s;
 	transition: all 0.5s;
 }
-#content #text-9 ul li:hover img{
+#content #text-6 ul li:hover img{
 	opacity:0.8;
 }
-#content #text-9 ul li p{
+#content #text-6 ul li p{
 	position:absolute;
 	top:110%;
 	left:-20px;
@@ -770,38 +770,38 @@ header.site-header *{
 	-o-transition: all 0.5s;
 	transition: all 0.5s;
 }
-#content #text-9 ul li:hover p{
+#content #text-6 ul li:hover p{
 	top:90%;
 	opacity:1;
 	visibility:visible;
 }
-#content #text-9 ul li p strong{
+#content #text-6 ul li p strong{
 	display:block;
 	margin:0 0 5px;
 }
-#content #text-9 ul li p span{
+#content #text-6 ul li p span{
 	display:block;
 	margin:0 0 5px;
 	font-size:0.8em;
 	line-height:1;
 }
-#content #text-9 ul li p a,
-#content #text-9 ul li p a img{
+#content #text-6 ul li p a,
+#content #text-6 ul li p a img{
 	display:inline!important;
 	box-shadow:none!important;
 }
-#content #text-9 h3{
+#content #text-6 h3{
 	clear:both;
 	margin:0 0 10px;
 	padding:20px 0 0;
 	font-family:"open sans";
 	font-size:2.5em;
 }
-#content #text-9 h3 ~ p{
+#content #text-6 h3 ~ p{
 	float:none;
 	width:auto;
 }
-#content #text-9 h3 ~ a{
+#content #text-6 h3 ~ a{
 	display:inline-block;
 	padding:5px	15px;
 	background:#000;
@@ -810,8 +810,8 @@ header.site-header *{
 	font-size:1.3em;
 	text-transform:uppercase;
 }
-#content #text-9 h3 ~ a:hover,
-#content #text-9 h3 ~ a:focus{
+#content #text-6 h3 ~ a:hover,
+#content #text-6 h3 ~ a:focus{
 	background:#607d8b;
 	text-decoration:none;
 }
@@ -819,10 +819,10 @@ header.site-header *{
 /*
 	PARTENAIRE
 */
-#content #text-10 ul li{
+#content #text-7 ul li{
 	display:inline-block;
 }
-#content #text-10 ul li a{
+#content #text-7 ul li a{
 	display:inline!important;
 }
 
@@ -830,7 +830,7 @@ header.site-header *{
 	NEWSLETTER
 */
 #content #text-3.widget h2.widget-title::after,
-#content #text-4.widget h2.widget-title::after{
+#content #text-8.widget h2.widget-title::after{
 	background-position:0 -83px;
 }
 #mc_embed_signup > a{
@@ -1256,7 +1256,8 @@ article.type-post a.post-thumbnail:focus img{
 	transform: scale(1.05);
 }
 
-.news article.type-post div.post-thumbnail{
+.news article.type-post div.post-thumbnail,
+article.type-post.tag-intervenant div.post-thumbnail{
 	display:none;
 }
 
