@@ -1763,7 +1763,7 @@ article.type-tribe_events .evenenemt .tribe-events-event-image{
     margin: 0;
     overflow: hidden;
     position: absolute;
-    right: 25%;
+    right: 20%;
     top: 0;
     width: 25%;
 }
@@ -1777,7 +1777,7 @@ article.type-tribe_events .evenenemt .tribe-events-event-image a img{
 article.type-tribe_events .evenenemt #event-content {
     float: left;
     padding: 30px 50px;
-    width: 50%;
+    width: 80%;
 }
 
 article.type-tribe_events .evenenemt h2{
@@ -1813,12 +1813,15 @@ article.type-tribe_events .evenenemt .tribe-events-list-event-description p{
 	font-size:1.4em;
 	line-height:1.4!important;
 }
-article.type-tribe_events .tribe-events-event-image ~ h2,
+article.type-tribe_events .evenenemt .tribe-events-event-image + #event-content {
+	width:55%;
+}
+/*article.type-tribe_events .tribe-events-event-image ~ h2,
 article.type-tribe_events .tribe-events-event-image ~ .sous-titre,
 article.type-tribe_events .tribe-events-event-image ~ .intervenant,
 article.type-tribe_events .evenenemt .tribe-events-event-image ~ .tribe-events-list-event-description{
 	padding-right:42%;
-}
+}*/
 article.type-tribe_events .evenenemt .tribe-events-event-meta{
     clear: none;
     color: #fff;
@@ -2827,6 +2830,16 @@ footer.site-footer section.sidebar{
 	.fpw-featured-image{
 		display:none;
 	}
+	article.type-tribe_events .evenenemt .tribe-events-event-image{
+		display:none;
+	}
+	article.type-tribe_events .evenenemt #event-content,
+	article.type-tribe_events .evenenemt .tribe-events-event-image + #event-content{
+		width:70%;
+	}
+	article.type-tribe_events .evenenemt .tribe-events-event-meta{
+		width:30%;
+	}
 	
 	/* STRUCTURE */
 	header.site-header,
@@ -2847,6 +2860,26 @@ footer.site-footer section.sidebar{
 	}
 }
 @media only screen and (max-width: 900px){
+	/* STYLES THEME PARENT */
+	.entry-header,
+	.post-thumbnail,
+	.entry-content,
+	.entry-summary,
+	.entry-footer,
+	.comments-area,
+	.image-navigation,
+	.post-navigation,
+	.page-header,
+	.page-content,
+	.content-bottom-widgets,
+	.entry-header,
+	.entry-summary,
+	.entry-content,
+	.entry-footer,
+	.page-content{
+		margin:0;
+	}
+	
 	/* WIDGETS */
 	#top{
 		padding-top:13em;
@@ -2904,6 +2937,76 @@ footer.site-footer section.sidebar{
 	footer.site-footer .main-navigation{
 		display:none;
 	}
+	
+	/* JOBS */
+	.entry-content .job_listings ul li a, .entry-content .rp4wp-related-job_listing > ul li.job_listing a,
+	.entry-content .rp4wp-related-job_listing > ul li.no_job_listings_found a,
+	.entry-content ul.job_listings li.job_listing a,
+	.entry-content ul.job_listings li.no_job_listings_found a{
+		padding-bottom:60px;
+	}
+	.entry-content .job_listings ul li a > img,
+	.entry-content .rp4wp-related-job_listing > ul li.job_listing a img.company_logo,
+	.entry-content .rp4wp-related-job_listing > ul li.no_job_listings_found a img.company_logo,
+	.entry-content ul.job_listings li.job_listing a img.company_logo,
+	.entry-content ul.job_listings li.no_job_listings_found a img.company_logo{
+		visibility:visible;
+	}
+	.entry-content .job_listings ul li .meta,
+	.entry-content .rp4wp-related-job_listing > ul li.job_listing a .meta,
+	.entry-content .rp4wp-related-job_listing > ul li.no_job_listings_found a .meta,
+	.entry-content ul.job_listings li.job_listing a .meta,
+	.entry-content ul.job_listings li.no_job_listings_found a .meta{
+		top:auto;
+		bottom:0;
+		left:0;
+		padding:10px 20px;
+		width:auto;
+	}
+	.entry-content .rp4wp-related-job_listing > ul li.job_listing a .meta .job-type,
+	.entry-content .rp4wp-related-job_listing > ul li.no_job_listings_found a .meta .job-type,
+	.entry-content ul.job_listings li.job_listing a .meta .job-type,
+	.entry-content ul.job_listings li.no_job_listings_found a .meta .job-type{
+		float:left;
+		width:48%;
+	}
+	.entry-content .job_listings ul li .meta .date{
+		float:right;
+		margin:5px 0 0!important;
+		padding:0!important;
+		width:48%;
+		border:none;
+		text-align:right;
+	}
+	
+	/* EVENTS */
+	article.type-tribe_events .evenenemt #event-content,
+	article.type-tribe_events .evenenemt .tribe-events-event-image + #event-content{
+		position:relative;
+		z-index:2;
+		margin:0 0 15px;
+		padding:20px;
+		background:#fff;
+		width:100%;
+	}
+	article.type-tribe_events .evenenemt .tribe-events-event-meta{
+		float:none;
+		padding:0;
+		width:auto;
+		display:block;
+		position:relative;
+		height:auto;
+	}
+	article.type-tribe_events .tribe-events-list-related-content article{
+		padding:50px 20px 20px!important;
+	}
+	/*article.type-tribe_events .evenenemt .tribe-events-event-meta > div{
+		position:relative;
+		top:auto;
+		bottom:auto;
+		height:auto;
+	}*/
+
 	
 	/* PAGINATION */
 	.category-asso nav.navigation.pagination .prev.page-numbers,
@@ -2976,10 +3079,46 @@ footer.site-footer section.sidebar{
 	.countdown-event-widget .sous-titre{
 		font-size:1.4em;
 	}
+	.category-asso #content .textwidget h2{
+		font-size:1.7em;
+	}
+	#top #text-7{
+		padding:0 30px;
+	}
+	#top #text-7 .nous,
+	#top #text-7 .nous + .nous{
+		float:none;
+		margin:0 0 10px;
+		width:auto;
+		text-align:center;
+	}
+	#top #text-7 .nous + .nous::before{
+		content:"";
+	}
+	#top #text-7 .president::before{
+		position:relative;
+		top:auto;
+		display:block;
+	}
+	#top #text-7 .president strong{
+		font-size:14vw;
+	}
+	#top #text-7 .president em{
+		font-size:7vw;
+	}
+	#content #text-8 ul li{
+		display:block;
+		width:auto;
+	}
+	#content #text-8 ul li + li{
+		margin:30px 0 0;
+	}
 
 	/* STRUCTURE */
 	#secondary,
-	#primary{
+	#primary,
+	.category-asso #primary,
+	.category-asso #secondary{
 		float:none;
 		margin:0 0 80px;
 		width:auto;
@@ -2987,6 +3126,10 @@ footer.site-footer section.sidebar{
 	.entry-header, .entry-summary, .entry-content, .entry-footer, .page-content{
 		margin:0;
 	}
+	.category-asso #primary::before{
+		font-size:14.5vw;
+	}
+	
 	
 	/* PAGINATION */
 	nav.navigation.pagination .prev.page-numbers,
@@ -3032,21 +3175,32 @@ footer.site-footer section.sidebar{
 	form.job_filters .search_jobs,
 	form.job_filters .job_types{
 		display:block;
+		margin:0 0 5px;
+		padding:0;
+		float:none;
+		width:100%;
+	}
+	form.job_filters .search_jobs,
+	form.job_filters .job_types{
+		width:auto;
 	}
 	.job_filters .search_jobs div.filter_last,
 	.job_filters .search_jobs div.search_location{
+		margin:0 0 5px;
+		padding:0;
 		float:none;
-		width:auto;
+		width:100%;
 	}
 	form.job_filters .job_types li{
 		float:none;
+		margin:0 0 10px;
 		padding:0;
 	}
 	.entry-content .job_listings ul li a, .entry-content .rp4wp-related-job_listing > ul li.job_listing a,
 	.entry-content .rp4wp-related-job_listing > ul li.no_job_listings_found a,
 	.entry-content ul.job_listings li.job_listing a,
 	.entry-content ul.job_listings li.no_job_listings_found a{
-		padding-bottom:70px;
+		padding-bottom:50px;
 	}
 	.entry-content .job_listings ul li a > img,
 	.entry-content .rp4wp-related-job_listing > ul li.job_listing a img.company_logo,
@@ -3056,6 +3210,7 @@ footer.site-footer section.sidebar{
 		float:none;
 		display:block;
 		max-width:25%;
+		visibility:visible;
 	}
 	.entry-content .job_listings ul li .position,
 	.entry-content .rp4wp-related-job_listing > ul li.job_listing a div.position,
@@ -3069,6 +3224,7 @@ footer.site-footer section.sidebar{
 	.entry-content .rp4wp-related-job_listing > ul li.no_job_listings_found a div.location,
 	.entry-content ul.job_listings li.job_listing a div.location,
 	.entry-content ul.job_listings li.no_job_listings_found a div.location{
+		clear:both;
 		float:none;
 		width:auto;
 		text-align:left;

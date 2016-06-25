@@ -23,6 +23,9 @@ $organizer = tribe_get_organizer();
 
 ?>
 
+<!-- Event Image -->
+<?php echo tribe_event_featured_image(null, 'medium') ?>
+
 <div id="event-content">
     <!-- Event Title -->
     <?php do_action('tribe_events_before_the_event_title') ?>
@@ -56,8 +59,6 @@ $organizer = tribe_get_organizer();
     </div><!-- .tribe-events-list-event-description -->
 </div>
 
-<!-- Event Image -->
-<?php echo tribe_event_featured_image(null, 'medium') ?>
     
 <!-- Event Meta -->
 <?php do_action('tribe_events_before_the_meta') ?>
