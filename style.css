@@ -827,6 +827,19 @@ header.site-header *{
 }
 
 /*
+	CONTACT
+*/
+#content #text-11 label{
+	font-size: 1.2em;
+	line-height: 2;
+}
+div.wpcf7-response-output{
+	margin:0;
+	padding: 10px;
+	font-size: 1.2em;
+}
+
+/*
 	NEWSLETTER
 */
 #content #text-3.widget h2.widget-title::after,
