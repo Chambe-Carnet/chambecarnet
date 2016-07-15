@@ -254,8 +254,18 @@ class Compte_Rendu_Widget extends WP_Widget
         $title = apply_filters('widget_title', $title);
 
         $args = array(
-            'category'      => 23,
-            'numberposts'   => $instance['nb_items']
+            'orderby' => 'date',
+            'order' => 'DESC',
+            'post_type' => 'post',
+            'post_status' => 'publish',
+            'numberposts'   => $instance['nb_items'],
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'post_tag',
+                    'field' => 'id',
+                    'terms' => '163' # id du tag "compte rendu"
+                )
+            )
         );
 
         self::$posts = get_posts($args);
