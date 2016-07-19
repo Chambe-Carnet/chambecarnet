@@ -10,28 +10,32 @@ $posts = chambecarnet_get_comptes_rendus_widget();
 
 // Check if any event posts are found.
 if ($posts) : ?>
-    <div class="compterendu-widget">
+    <section class="compterendu-widget widget">
         <h2 class="widget-title">Derniers comptes rendus</h2>
-        <?php
+        <ul class="compterendu">
+		<?php
         // Setup the post data for each event.
         foreach ($posts as $post) :
             setup_postdata($post);
         ?>
-            <div class="compterendu">
-                <a class="img" href="<?php echo esc_url(get_permalink()); ?>">
-                    <?php the_post_thumbnail(); ?>
-                </a>
+            <li>
+                
                 
                 <a class="title" href="<?php echo esc_url(get_permalink()); ?>">
                     <strong>
                         <?php the_title(); ?>
                     </strong>
                 </a>
-            </div>
+                <?php twentysixteen_excerpt(); ?>
+                <a class="img" href="<?php echo esc_url(get_permalink()); ?>">
+                    <?php the_post_thumbnail(); ?>
+                </a>
+            </li>
         <?php
         endforeach;
         ?>
-    </div>
+        </ul>
+    </section>
 
 <?php
 // No posts find
