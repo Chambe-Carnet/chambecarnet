@@ -11,10 +11,11 @@
  * @since Twenty Sixteen 1.0
  */
  
+ /* Template Name: Projet */
 
 get_header(); ?>
 
-<div id="primary" class="content-area">
+<div id="primary" class="content-area pages-projet pages-asso">
 	<main id="main" class="site-main" role="main">
 		<?php
 		// Start the loop.
