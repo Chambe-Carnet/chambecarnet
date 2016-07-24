@@ -1484,6 +1484,11 @@ article.type-post .entry-content h2{
     font-family: 'blanchcaps';
 	line-height:1;	
 }
+article.type-post .entry-content h3{
+	margin: 20px 0 10px;
+	font-size: 2em;
+	font-weight: normal;
+}
 article.type-post .entry-content img{
 	max-width:100%;
 }
@@ -2850,6 +2855,11 @@ article.type-job_listing .entry-content h2{
 	font-size:3em;
 	font-weight:normal;
 	line-height:1;	
+}
+article.type-job_listing .entry-content h3{
+	margin: 20px 0 10px;
+	font-size: 2em;
+	font-weight: normal;
 }
 article.type-job_listing .entry-content img{
 	max-width:100%;
