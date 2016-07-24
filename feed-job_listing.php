@@ -39,9 +39,9 @@ do_action( 'rss_tag_pre', 'rss2' );
 >
 
     <channel>
-        <title><?php wp_title_rss(); ?></title>
+        <title>Chambé-Carnet &#8211; Jobs</title>
         <atom:link href="<?php self_link(); ?>" rel="self" type="application/rss+xml" />
-        <link><?php bloginfo_rss('url') ?></link>
+        <link><?php bloginfo_rss('url') ?>/jobs</link>
         <description><?php bloginfo_rss("description") ?></description>
         <lastBuildDate><?php echo mysql2date('D, d M Y H:i:s +0000', get_lastpostmodified('GMT'), false); ?></lastBuildDate>
         <language><?php bloginfo_rss( 'language' ); ?></language>
@@ -108,7 +108,7 @@ do_action( 'rss_tag_pre', 'rss2' );
                 <?php if(get_the_post_thumbnail()): ?>
                     <media:content url="<?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'jobcompany-thumb'); echo $image[0]; ?>" medium="image" />
                 <?php else : ?>
-                    <media:content url="http://www.chambe-carnet.com/wp-content/plugins/wp-job-manager/assets/images/company.png" medium="image" />
+                    <media:content url="http://www.chambe-carnet.com/wp-content/uploads/2016/07/company.png" medium="image" />
                 <?php endif; ?>
                 <?php rss_enclosure(); ?>
                 <?php
