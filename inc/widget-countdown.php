@@ -12,10 +12,10 @@ $events_label_plural_lowercase = tribe_get_event_label_plural_lowercase();
 $posts = chambecarnet_get_list_widget_events();
 
 if (is_home()) {
-    $widget_location = 'home';
+    $widget_location = 'home-event-widget';
 }
 else {
-    $widget_location = 'sidebar';
+    $widget_location = 'sidebar-event-widget';
 }
 
 // Check if any event posts are found.
