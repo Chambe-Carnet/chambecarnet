@@ -201,14 +201,14 @@ header.site-header *{
 }
 .home.news .main-navigation .menu-item:nth-child(1)::after,
 .home.events .main-navigation .menu-item:nth-child(3)::after,
-.home.jobs .main-navigation .menu-item:nth-child(2)::after,
+.home.jobs-posts .main-navigation .menu-item:nth-child(2)::after,
 .tag.events .main-navigation .menu-item:nth-child(3)::after{
 	content:"";
 }
 .single-job_listing .main-navigation .menu-item:nth-child(2)::after,
 .main-navigation .current-menu-item:nth-child(2)::after,
 .main-navigation .current-menu-ancestor:nth-child(2)::after,
-.jobs .main-navigation .menu-item:nth-child(2)::after{
+.jobs-posts .main-navigation .menu-item:nth-child(2)::after{
 	content:url(images/jobs-on.png);
 }
 .single-tribe_events .main-navigation .menu-item:nth-child(3)::after,
@@ -1078,6 +1078,67 @@ div.wpcf7-response-output{
 	color:#761414!important;
 }
 
+/* Inscription alerte jobs */
+.jobs-plus{
+	margin: 0;
+	font-family: 'blanchcaps';
+	font-size: 3em;
+	color: #ff6b6b;
+	line-height: 1;
+}
+
+#mc_embed_signup_jobs {
+	margin: 0 0 30px;
+	padding: 20px;
+	background-color: #ff6b6b;
+	overflow: hidden;
+}
+#mc_embed_signup_jobs > p{
+	float: right;
+	margin: 0;
+	width: 30%;
+}
+#mc_embed_signup_jobs > p a{
+	display: block;
+	padding: 20px;
+	background: #4c4c4c;
+	border:none;
+	border-radius: 50px;
+	font-weight: 700;
+	text-transform: uppercase;
+	text-align: center;
+	color: #ff6b6b;
+}
+#mc_embed_signup_jobs > p a:hover,
+#mc_embed_signup_jobs > p a:focus{
+	background: #000;
+}
+#mc_embed_signup_jobs form{
+	float: left;
+	width: 60%;
+}
+#mc_embed_signup_jobs label{
+	display: block;
+	color: #fff;
+	font-size: 1.2em;
+	font-weight: 700;
+}
+#mc_embed_signup_jobs input[type=email]{
+	display: inline-block;
+	width: 50%;
+	border:none;
+	border-radius: 0;
+	font-size: 0.9em;
+}
+#mc_embed_signup_jobs input[type=submit]{
+	background: #4c4c4c;
+	border-radius: 0;
+	font-size: 0.9em;
+	font-weight: 400;
+}
+#mc_embed_signup_jobs #mc-embedded-subscribe{
+}
+
 /*------------------------------------------------------------------------------------------------------------
 	== ARTICLE
 ------------------------------------------------------------------------------------------------------------*/
@@ -1388,6 +1449,18 @@ article.type-post a.post-thumbnail:focus img{
 	-o-transform: scale(1.05);
 	transform: scale(1.05);
 }
+.pages-projet article.type-page .post-thumbnail{
+	background:#e4e4db;
+	text-align:center;
+}
+.pages-projet article.type-page .post-thumbnail img{
+	margin:auto;
+	width:auto;
+}
+.pages-asso article.type-page .post-thumbnail img{
+	width:100%;
+	height:auto;
+}
 
 /*.news article.type-post div.post-thumbnail,*/
 article.type-post.tag-intervenant div.post-thumbnail{
@@ -1410,6 +1483,11 @@ article.type-post .entry-content h2{
 	font-weight:normal;
     font-family: 'blanchcaps';
 	line-height:1;	
+}
+article.type-post .entry-content h3{
+	margin: 20px 0 10px;
+	font-size: 2em;
+	font-weight: normal;
 }
 article.type-post .entry-content img{
 	max-width:100%;
@@ -1640,7 +1718,7 @@ nav.navigation.post-navigation{
 .news nav.navigation.post-navigation{
 	background:#c6f364;
 }
-.jobs nav.navigation.post-navigation,
+.jobs-posts nav.navigation.post-navigation,
 .single-job_listing nav.navigation.post-navigation{
 	background:#ff6b6b;
 }
@@ -1868,6 +1946,11 @@ nav.navigation.post-navigation .nav-links > div.nav-next > a{
 	font-weight:normal;
     font-family: 'blanchcaps';
 	line-height:1;	
+}
+.pages-asso article.type-page .entry-content h3{
+	margin:20px 0 10px;
+	font-size:2em;
+	font-weight:normal;
 }
 .pages-asso article.type-page .entry-content img{
 	max-width:100%;
@@ -2773,6 +2856,11 @@ article.type-job_listing .entry-content h2{
 	font-weight:normal;
 	line-height:1;	
 }
+article.type-job_listing .entry-content h3{
+	margin: 20px 0 10px;
+	font-size: 2em;
+	font-weight: normal;
+}
 article.type-job_listing .entry-content img{
 	max-width:100%;
 }
@@ -2999,6 +3087,22 @@ footer.site-footer section.sidebar{
 		width:35%;
 	}
 }
+@media only screen and (max-width: 1150px){
+	#mc_embed_signup_jobs form{
+		float: none;
+		margin: 0 0 40px;
+		width: auto;
+	}
+	#mc_embed_signup_jobs > p{
+		float: none;
+		width: auto;
+	}
+	#mc_embed_signup_jobs > p a{
+		display: inline-block;
+		padding: 10px 20px;
+	}
+}
+
 @media only screen and (max-width: 1024px){
 	#top .countdown-event-widget{
 		padding:8% 4% 0 10%;
@@ -3382,6 +3486,10 @@ footer.site-footer section.sidebar{
 	article.type-job_listing .entry-content .infos-company ul li{
 		float:none;
 		width:auto;
+	}
+	#mc_embed_signup_jobs form input[type=email],
+	#mc_embed_signup_jobs form input[type=submit]{
+		width: 100%;
 	}
 	
 	

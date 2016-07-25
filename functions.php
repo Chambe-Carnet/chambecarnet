@@ -146,3 +146,4 @@ function style_list_events()
 }
 
 add_image_size( 'jobcompany-thumb', 90, 90, false );
+set_post_thumbnail_size(1500, 9999);
