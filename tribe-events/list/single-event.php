@@ -93,7 +93,7 @@ $organizer = tribe_get_organizer();
             if ( strtotime( tribe_get_end_date( $post, false, 'Y-m-d G:i' ) . $gmt_offset ) >= time() ) {
                 ?>
                 <a class="tribe-event-inscription-url" href="<?php echo esc_url(tribe_get_event_link()) . "#inscriptions"; ?>"
-                   title="Inscriptions">
+                   title="Inscriptions" onMouseDown="ga('send', 'event', 'Event Inscription - Listing', this.href);">
                     Je m'inscris
                 </a>
                 <?php
