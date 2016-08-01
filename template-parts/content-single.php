@@ -62,7 +62,7 @@
                             <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL"
                                    placeholder="email">
                             <input type="submit" value="Recevoir les offres" name="subscribe"
-                                   id="mc-embedded-subscribe" class="button">
+                                   id="mc-embedded-subscribe" class="button" onMouseDown="ga('send', 'event', 'Inscription Alerte Jobs', 'submit');">
                         </div>
                         <div id="mce-responses" class="clear">
                             <div class="response" id="mce-error-response" style="display:none"></div>
