@@ -62,7 +62,7 @@
                             <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL"
                                    placeholder="email">
                             <input type="submit" value="Recevoir les offres" name="subscribe"
-                                   id="mc-embedded-subscribe" class="button" onMouseDown="ga('send', 'event', 'Inscription Alerte Jobs', 'submit');">
+                                   id="mc-embedded-subscribe" class="button" onMouseDown="ga('send', 'event', 'Newsletter', 'Inscription', 'Billet Jobs');">
                         </div>
                         <div id="mce-responses" class="clear">
                             <div class="response" id="mce-error-response" style="display:none"></div>
@@ -77,7 +77,7 @@
                         </div>
                     </div>
                 </form>
-                <p><a href="http://www.chambe-carnet.com/jobs" onMouseDown="ga('send', 'event', 'Job Listing', this.href);">Consultez notre job board</a></p>
+                <p><a href="http://www.chambe-carnet.com/jobs" onMouseDown="ga('send', 'event', 'Jobs', 'Clic', 'Billet Jobs');">Consultez notre job board</a></p>
             </div>
             <!--End mc_embed_signup-->
             <?php
