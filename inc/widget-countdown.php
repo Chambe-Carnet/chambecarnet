@@ -12,10 +12,10 @@ $events_label_plural_lowercase = tribe_get_event_label_plural_lowercase();
 $posts = chambecarnet_get_list_widget_events();
 
 if (is_home()) {
-    $widget_location = 'home';
+    $widget_location = 'Home';
 }
 else {
-    $widget_location = 'sidebar';
+    $widget_location = 'Sidebar';
 }
 
 // Check if any event posts are found.
@@ -43,7 +43,7 @@ if ($posts) : ?>
             <span class="categorie"><?php echo tribe_get_event_taxonomy() ?></span>
             <!-- Event Title -->
             <strong class="tribe-event-title">
-                <a href="<?php echo esc_url(tribe_get_event_link()); ?>" rel="bookmark" onMouseDown="ga('send', 'event', '<?php echo $widget_location ?>', this.href);"><?php the_title(); ?></a>
+                <a href="<?php echo esc_url(tribe_get_event_link()); ?>" rel="bookmark" onMouseDown="ga('send', 'event', 'Event', 'Inscription', '<?php echo $widget_location ?>');"><?php the_title(); ?></a>
             </strong>
 
         <?php
@@ -60,7 +60,7 @@ if ($posts) : ?>
             <span class="intervenant">Animée par <?php echo $event_animateur; ?></span>
         <?php } ?>
 
-            <a class="inscription" href="<?php echo esc_url(tribe_get_event_link()); ?>" rel="bookmark" onMouseDown="ga('send', 'event', '<?php echo $widget_location ?>', this.href);">Je m'inscris</a>
+            <a class="inscription" href="<?php echo esc_url(tribe_get_event_link()); ?>" rel="bookmark" onMouseDown="ga('send', 'event', 'Event', 'Inscription', '<?php echo $widget_location ?>');">Je m'inscris</a>
             <?php
         endforeach;
         ?>
