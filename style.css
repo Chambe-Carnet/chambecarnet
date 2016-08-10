@@ -5,7 +5,7 @@
  Author:       Chambé-Carnet
  Author URI:   http://example.com
  Template:     twentysixteen
- Version:      1.1.1
+ Version:      1.1.4
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
@@ -201,7 +201,7 @@ header.site-header *{
 }
 .home.news .main-navigation .menu-item:nth-child(1)::after,
 .home.events .main-navigation .menu-item:nth-child(3)::after,
-.home.jobs-posts .main-navigation .menu-item:nth-child(2)::after,
+.home.jobs .main-navigation .menu-item:nth-child(2)::after,
 .tag.events .main-navigation .menu-item:nth-child(3)::after{
 	content:"";
 }
@@ -953,7 +953,8 @@ div.wpcf7-response-output{
 #content #text-8.widget h2.widget-title::after{
 	background-position:0 -83px;
 }
-#mc_embed_signup > a{
+#mc_embed_signup > a,
+#mc_embed_signup_post > a{
 	display:inline-block;
 	margin:10px 0 0;
 	color:#4c4c4c;
@@ -962,10 +963,13 @@ div.wpcf7-response-output{
 	box-shadow:none;
 }
 #mc_embed_signup > a:hover,
-#mc_embed_signup > a:focus{
+#mc_embed_signup > a:focus,
+#mc_embed_signup_post > a:hover,
+#mc_embed_signup_post > a:focus{
 	color:#000;
 }
-#mc_embed_signup > a::before{
+#mc_embed_signup > a::before,
+#mc_embed_signup_post > a::before{
 	content:"";
 	display:inline-block;
 	padding:0 8px 0 0;
@@ -981,14 +985,18 @@ div.wpcf7-response-output{
 	transition: all 0.5s;
 }
 #mc_embed_signup > a:hover::before,
-#mc_embed_signup > a:focus::before{
+#mc_embed_signup > a:focus::before,
+#mc_embed_signup_post > a:hover::before,
+#mc_embed_signup_post > a:focus::before{
 	opacity:1;
 }
 
-#mc_embed_signup form{
+#mc_embed_signup form,
+#mc_embed_signup_post form{
 	position:relative;
 }
-#mc_embed_signup label[for=mce-EMAIL]{
+#mc_embed_signup label[for=mce-EMAIL],
+#mc_embed_signup_post label[for=mce-EMAIL]{
 	display:none;
 }
 #mc_embed_signup input[type=email]{
@@ -999,13 +1007,24 @@ div.wpcf7-response-output{
 	font-size:1.2em;
 	font-family:"open sans";
 }
-#mc_embed_signup ul{
+#mc_embed_signup_post input[type=email]{
+	padding:5px 15px; 
+	background:#fff;
+	border:1px solid #d6d6cf;
+	font-weight:400;
+	font-size:1em;
+	font-family:"open sans";
+}
+#mc_embed_signup ul,
+#mc_embed_signup_post ul{
 	margin:0 0 5px;
 }
-#mc_embed_signup ul li{
+#mc_embed_signup ul li,
+#mc_embed_signup_post ul li{
 	display:inline-block;
 }
-#mc_embed_signup ul li + li{
+#mc_embed_signup ul li + li,
+#mc_embed_signup_post ul li + li{
 	margin:0 0 0 10px;
 }
 #mc_embed_signup ul li label{
@@ -1013,10 +1032,15 @@ div.wpcf7-response-output{
 	font-size:1.2em;
 	vertical-align:middle;
 }
-#mc_embed_signup ul li input{
+#mc_embed_signup_post ul li label{
 	vertical-align:middle;
 }
-#mc_embed_signup input[type=submit]{
+#mc_embed_signup ul li input,
+#mc_embed_signup_post ul li input{
+	vertical-align:middle;
+}
+#mc_embed_signup input[type=submit],
+#mc_embed_signup_post input[type=submit]{
 	position:absolute;
 	bottom:0;
 	right:0;
@@ -1025,6 +1049,9 @@ div.wpcf7-response-output{
 	background:url(images/sprite.png) -165px 0 no-repeat;
 	border:none;
 	text-indent:-5000px;
+}
+#mc_embed_signup_post input[type=submit]{
+	bottom:20px;
 }
 
 /*
@@ -1410,7 +1437,7 @@ article.type-post.category-news:hover .entry-summary{
 article.type-post.category-events:hover .entry-summary{
 	color:#034a53;
 }
-article.type-post.category-jobs-posts:hover .entry-summary{
+article.type-post.category-jobs:hover .entry-summary{
 	color:#761414;
 }
 .home article.type-post .entry-summary{
@@ -1483,6 +1510,9 @@ article.type-post .entry-content h2{
 	font-weight:normal;
     font-family: 'blanchcaps';
 	line-height:1;	
+}
+article.type-post .entry-content h2:first-child{
+	margin-top:0;
 }
 article.type-post .entry-content h3{
 	margin: 20px 0 10px;
