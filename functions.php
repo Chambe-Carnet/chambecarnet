@@ -150,3 +150,31 @@ function style_list_events()
 
 add_image_size( 'jobcompany-thumb', 90, 90, false );
 set_post_thumbnail_size(1500, 9999);
+
+#Override de la function qui récupère les événements
+/**
+ * Trigger is_404 on single event if no events are found
+ */
+function custom_template_redirect() {
+    global $wp_query;
+
+    // if JS is disabled, then we need to handle tribe bar submissions manually
+    if ( ! empty( $_POST['tribe-bar-view'] ) && ! empty( $_POST['submit-bar'] ) ) {
+            $this->handle_submit_bar_redirect( $_POST );
+    }
+    if ($wp_query->tribe_is_event_query && get_query_var('eventDisplay') == 'single-event' && empty($wp_query->posts)) {
+        //Si pas d'événements, on regarde si on trouve un post correspondant
+        $args=array(
+            'name' => get_query_var('name'),
+            'post_type' => 'post',
+            'post_status' => 'publish',
+            'posts_per_page' => 1,
+            'caller_get_posts'=> 1
+        );
+        $wp_query = new WP_Query($args);
+        if (empty($wp_query->posts)) {
+            $wp_query->is_404 = true;
+        }
+    }
+}
+add_action('template_redirect', 'custom_template_redirect', 20);
