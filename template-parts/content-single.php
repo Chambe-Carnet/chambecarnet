@@ -44,7 +44,7 @@
         <?php
         the_content();
 
-        if (in_category('jobs-posts')) {
+        if (in_category('jobs')) {
             ?>
             <p class="jobs-plus">Vous en voulez plus ?</p>
             <!-- Begin MailChimp Signup Form -->
