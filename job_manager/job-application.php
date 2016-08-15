@@ -4,7 +4,7 @@
 	<div class="job_application application">
 		<?php do_action( 'job_application_start', $apply ); ?>
 
-		<input type="button" class="application_button button" value="<?php _e( 'Apply for job', 'wp-job-manager' ); ?>" onMouseDown="ga('send', 'event', 'Jobs', 'Postuler', this.href);" />
+		<input type="button" class="application_button button" value="<?php _e( 'Apply for job', 'wp-job-manager' ); ?>" onMouseDown="ga('send', 'event', 'Jobs', 'Postuler', window.location.href);" />
 		
 		<div class="application_details">
 			<?php
