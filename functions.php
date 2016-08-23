@@ -176,5 +176,15 @@ function custom_template_redirect() {
             $wp_query->is_404 = true;
         }
     }
+    elseif (get_query_var('name') == 'page' && is_int(get_query_var('page')) && !empty(get_query_var('category_name'))) {
+        //Correction du problème de pagination des catégories qui provient du fait que la préfixe des catégories soit un point '.'
+        unset($wp_query->query['name']);
+        $wp_query->query['paged'] = get_query_var('page');
+        unset($wp_query->query['page']);
+        $wp_query = new WP_Query($wp_query->query);
+        if (empty($wp_query->posts)) {
+            $wp_query->is_404 = true;
+        }
+    }
 }
 add_action('template_redirect', 'custom_template_redirect', 20);
