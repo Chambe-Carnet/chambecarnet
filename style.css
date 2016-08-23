@@ -5,7 +5,7 @@
  Author:       Chambé-Carnet
  Author URI:   http://example.com
  Template:     twentysixteen
- Version:      1.1.4
+ Version:      1.2.0
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
@@ -208,7 +208,7 @@ header.site-header *{
 .single-job_listing .main-navigation .menu-item:nth-child(2)::after,
 .main-navigation .current-menu-item:nth-child(2)::after,
 .main-navigation .current-menu-ancestor:nth-child(2)::after,
-.jobs-posts .main-navigation .menu-item:nth-child(2)::after{
+.jobs .main-navigation .menu-item:nth-child(2)::after{
 	content:url(images/jobs-on.png);
 }
 .single-tribe_events .main-navigation .menu-item:nth-child(3)::after,
@@ -1292,7 +1292,7 @@ article.type-post.category-news .entry-infos{
 article.type-post.category-events .entry-infos{
 	background:#00BAD1;
 }
-article.type-post.category-jobs-posts .entry-infos,
+article.type-post.category-jobs .entry-infos,
 article.type-job_listing .entry-infos{
 	background:#FF6B6B;
 }
@@ -1316,8 +1316,8 @@ article.type-post .entry-infos span{
 .home  article.type-post.category-events:hover .entry-infos a{
 	color:#034a53;
 }
-.category  article.type-post.category-jobs-posts:hover .entry-infos a,
-.home  article.type-post.category-jobs-posts:hover .entry-infos a{
+.category  article.type-post.category-jobs:hover .entry-infos a,
+.home  article.type-post.category-jobs:hover .entry-infos a{
 	color:#761414;
 }
 article.type-post .entry-infos .posted-on{
@@ -1391,9 +1391,9 @@ article.type-post.category-events .entry-header h2 a:hover,
 article.type-post.category-events .entry-header h2 a:focus{
 	color:#034a53;
 }
-article.type-post.category-jobs-posts:hover .entry-header h2 a,
-article.type-post.category-jobs-posts .entry-header h2 a:hover,
-article.type-post.category-jobs-posts .entry-header h2 a:focus{
+article.type-post.category-jobs:hover .entry-header h2 a,
+article.type-post.category-jobs .entry-header h2 a:hover,
+article.type-post.category-jobs .entry-header h2 a:focus{
 	color:#761414;
 }
 article.type-post .entry-header h2 a::before{
@@ -1753,7 +1753,7 @@ nav.navigation.post-navigation{
 .news nav.navigation.post-navigation{
 	background:#c6f364;
 }
-.jobs-posts nav.navigation.post-navigation,
+.jobs nav.navigation.post-navigation,
 .single-job_listing nav.navigation.post-navigation{
 	background:#ff6b6b;
 }
