@@ -192,6 +192,7 @@ add_action('template_redirect', 'custom_template_redirect', 20);
 
 #Override des fonctions du flux rss des jobs
 if (class_exists("WP_Job_Manager_Post_Types")) {
+    remove_action('job_feed_item', $post_id);
     $jobsFeed = new WP_Job_Manager_Post_Types();
     function custom_job_feed_item()
     {
@@ -217,7 +218,7 @@ if (class_exists("WP_Job_Manager_Post_Types")) {
          *
          * @param int $post_id The post ID of the job.
          */
-        do_action('job_feed_item', $post_id);
+        do_action('custom_job_feed_item', $post_id, 20);
     }
 
     function custom_job_feed()
@@ -287,5 +288,5 @@ if (class_exists("WP_Job_Manager_Post_Types")) {
         load_template($rss_template);
     }
 
-    add_feed('job_feed', 'custom_job_feed', 20);
+    add_feed('jobs', 'custom_job_feed');
 }
