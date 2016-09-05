@@ -42,6 +42,7 @@ X8888  X888h        888E .z8k     us888u.  ~`8888~'888X`?888f`  9888.z88N    ud8
         <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
     <?php endif; ?>
     <?php wp_head(); ?>
+    <link rel="alternate" type="application/rss+xml" title="Chambé-Carnet &raquo; Jobs" href="http://www.chambe-carnet.com/?feed=jobs" />
 </head>
 <?php
 $class = '';
