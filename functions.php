@@ -288,5 +288,5 @@ if (class_exists("WP_Job_Manager_Post_Types")) {
         load_template($rss_template);
     }
 
-    add_feed('jobs', 'custom_job_feed');
+    add_feed('jobs_feed', 'custom_job_feed');
 }
