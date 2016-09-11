@@ -31,7 +31,7 @@ $organizer = tribe_get_organizer();
     <?php do_action('tribe_events_before_the_event_title') ?>
         <h2 class="tribe-events-list-event-title">
             <a class="tribe-event-url" href="<?php echo esc_url(tribe_get_event_link()); ?>"
-               title="<?php the_title_attribute() ?>" rel="bookmark">
+               title="<?php the_title_attribute() ?>" rel="bookmark" onMouseDown="ga('send', 'event', 'Event', 'Inscription', 'Listing');">
                 <?php the_title() ?>
             </a>
         </h2>
@@ -92,8 +92,8 @@ $organizer = tribe_get_organizer();
             $gmt_offset = str_replace( array( '.25', '.5', '.75' ), array( ':15', ':30', ':45' ), $gmt_offset );
             if ( strtotime( tribe_get_end_date( $post, false, 'Y-m-d G:i' ) . $gmt_offset ) >= time() ) {
                 ?>
-                <a class="tribe-event-inscription-url" href="<?php echo esc_url(tribe_get_event_link()) . "#inscriptions"; ?>"
-                   title="Inscriptions" onMouseDown="ga('send', 'event', 'Event Inscription - Listing', this.href);">
+                <a class="tribe-event-inscription-url" href="<?php echo esc_url(tribe_get_event_link()); ?>#inscriptions"
+                   title="Inscriptions" onMouseDown="ga('send', 'event', 'Event', 'Inscription', 'Listing');">
                     Je m'inscris
                 </a>
                 <?php
