@@ -176,7 +176,17 @@ function custom_template_redirect()
         if (empty($wp_query->posts)) {
             $wp_query->is_404 = true;
         }
-    } elseif (get_query_var('name') == 'page' && is_int(get_query_var('page')) && !empty(get_query_var('category_name'))) {
+        else {
+            global $post;
+            $post = $wp_query->posts[0];
+            add_filter('aioseop_title', 'custom_wp_title', 20);
+            function custom_seo_title(){
+                global $post;
+                return $post->post_title;
+            }
+        }
+    } 
+    elseif (get_query_var('name') == 'page' && is_int(get_query_var('page')) && !empty(get_query_var('category_name'))) {
         //Correction du problème de pagination des catégories qui provient du fait que la préfixe des catégories soit un point '.'
         unset($wp_query->query['name']);
         $wp_query->query['paged'] = get_query_var('page');
