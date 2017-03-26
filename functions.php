@@ -5,7 +5,7 @@ function theme_enqueue_styles()
 {
     $themeVersion = wp_get_theme()->get('Version');
     wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
-    wp_enqueue_style('twentysixteen-style', get_stylesheet_directory_uri() .'/style.css', array('parent-style'), $themeVersion);
+    wp_enqueue_style('twentysixteen-style', get_stylesheet_directory_uri() . '/style.css', array('parent-style'), $themeVersion);
     wp_enqueue_script('jquery-countdown', get_stylesheet_directory_uri() . '/js/jquery.countdown.min.js', array(), '', true);
 
 
@@ -148,35 +148,35 @@ function style_list_events()
 
 }
 
-add_image_size( 'jobcompany-thumb', 90, 90, false );
+add_image_size('jobcompany-thumb', 90, 90, false);
 set_post_thumbnail_size(1500, 9999);
 
 #Override de la function qui récupère les événements
 /**
  * Trigger is_404 on single event if no events are found
  */
-function custom_template_redirect() {
+function custom_template_redirect()
+{
     global $wp_query;
 
     // if JS is disabled, then we need to handle tribe bar submissions manually
-    if ( ! empty( $_POST['tribe-bar-view'] ) && ! empty( $_POST['submit-bar'] ) ) {
-            $this->handle_submit_bar_redirect( $_POST );
+    if (!empty($_POST['tribe-bar-view']) && !empty($_POST['submit-bar'])) {
+        $this->handle_submit_bar_redirect($_POST);
     }
     if ($wp_query->tribe_is_event_query && get_query_var('eventDisplay') == 'single-event' && empty($wp_query->posts)) {
         //Si pas d'événements, on regarde si on trouve un post correspondant
-        $args=array(
+        $args = array(
             'name' => get_query_var('name'),
             'post_type' => 'post',
             'post_status' => 'publish',
             'posts_per_page' => 1,
-            'caller_get_posts'=> 1
+            'caller_get_posts' => 1
         );
         $wp_query = new WP_Query($args);
         if (empty($wp_query->posts)) {
             $wp_query->is_404 = true;
         }
-    }
-    elseif (get_query_var('name') == 'page' && is_int(get_query_var('page')) && !empty(get_query_var('category_name'))) {
+    } elseif (get_query_var('name') == 'page' && is_int(get_query_var('page')) && !empty(get_query_var('category_name'))) {
         //Correction du problème de pagination des catégories qui provient du fait que la préfixe des catégories soit un point '.'
         unset($wp_query->query['name']);
         $wp_query->query['paged'] = get_query_var('page');
@@ -187,27 +187,30 @@ function custom_template_redirect() {
         }
     }
 }
+
 add_action('template_redirect', 'custom_template_redirect', 20);
 
 #Override des fonctions du flux rss des jobs
 if (class_exists("WP_Job_Manager_Post_Types")) {
+    remove_action('job_feed_item', $post_id);
     $jobsFeed = new WP_Job_Manager_Post_Types();
-    function custom_job_feed_item() {
-        $post_id  = get_the_ID();
-        $location = get_the_job_location( $post_id );
-        $job_type = get_the_job_type( $post_id );
-        $company  = get_the_company_name( $post_id );
+    function custom_job_feed_item()
+    {
+        $post_id = get_the_ID();
+        $location = get_the_job_location($post_id);
+        $job_type = get_the_job_type($post_id);
+        $company = get_the_company_name($post_id);
 
-        echo "<description>". esc_html( $location ) . " - " . esc_html( $company ) . " - " . esc_html( $job_type->name )."</description>\n";
+        echo "<description>" . esc_html($location) . " - " . esc_html($company) . " - " . esc_html($job_type->name) . "</description>\n";
 
-        if ( $location ) {
-                echo "<job_listing:location><![CDATA[" . esc_html( $location ) . "]]></job_listing:location>\n";
+        if ($location) {
+            echo "<job_listing:location><![CDATA[" . esc_html($location) . "]]></job_listing:location>\n";
         }
-        if ( $job_type ) {
-                echo "<job_listing:job_type><![CDATA[" . esc_html( $job_type->name ) . "]]></job_listing:job_type>\n";
+        if ($job_type) {
+            echo "<job_listing:job_type><![CDATA[" . esc_html($job_type->name) . "]]></job_listing:job_type>\n";
         }
-        if ( $company ) {
-                echo "<job_listing:company><![CDATA[" . esc_html( $company ) . "]]></job_listing:company>\n";
+        if ($company) {
+            echo "<job_listing:company><![CDATA[" . esc_html($company) . "]]></job_listing:company>\n";
         }
 
         /**
@@ -215,72 +218,75 @@ if (class_exists("WP_Job_Manager_Post_Types")) {
          *
          * @param int $post_id The post ID of the job.
          */
-         do_action( 'job_feed_item', $post_id );
+        do_action('custom_job_feed_item', $post_id, 20);
     }
-    function custom_job_feed() {
+
+    function custom_job_feed()
+    {
         global $jobsFeed;
         $query_args = array(
-                'post_type'           => 'job_listing',
-                'post_status'         => 'publish',
-                'ignore_sticky_posts' => 1,
-                'posts_per_page'      => isset( $_GET['posts_per_page'] ) ? absint( $_GET['posts_per_page'] ) : 10,
-                'tax_query'           => array(),
-                'meta_query'          => array()
+            'post_type' => 'job_listing',
+            'post_status' => 'publish',
+            'ignore_sticky_posts' => 1,
+            'posts_per_page' => isset($_GET['posts_per_page']) ? absint($_GET['posts_per_page']) : 10,
+            'tax_query' => array(),
+            'meta_query' => array()
         );
 
-        if ( ! empty( $_GET['search_location'] ) ) {
-                $location_meta_keys = array( 'geolocation_formatted_address', '_job_location', 'geolocation_state_long' );
-                $location_search    = array( 'relation' => 'OR' );
-                foreach ( $location_meta_keys as $meta_key ) {
-                        $location_search[] = array(
-                                'key'     => $meta_key,
-                                'value'   => sanitize_text_field( $_GET['search_location'] ),
-                                'compare' => 'like'
-                        );
-                }
-                $query_args['meta_query'][] = $location_search;
-        }
-
-        if ( ! empty( $_GET['job_types'] ) ) {
-                $query_args['tax_query'][] = array(
-                        'taxonomy' => 'job_listing_type',
-                        'field'    => 'slug',
-                        'terms'    => explode( ',', sanitize_text_field( $_GET['job_types'] ) ) + array( 0 )
+        if (!empty($_GET['search_location'])) {
+            $location_meta_keys = array('geolocation_formatted_address', '_job_location', 'geolocation_state_long');
+            $location_search = array('relation' => 'OR');
+            foreach ($location_meta_keys as $meta_key) {
+                $location_search[] = array(
+                    'key' => $meta_key,
+                    'value' => sanitize_text_field($_GET['search_location']),
+                    'compare' => 'like'
                 );
+            }
+            $query_args['meta_query'][] = $location_search;
         }
 
-        if ( ! empty( $_GET['job_categories'] ) ) {
-                $cats     = explode( ',', sanitize_text_field( $_GET['job_categories'] ) ) + array( 0 );
-                $field    = is_numeric( $cats ) ? 'term_id' : 'slug';
-                $operator = 'all' === get_option( 'job_manager_category_filter_type', 'all' ) && sizeof( $args['search_categories'] ) > 1 ? 'AND' : 'IN';
-                $query_args['tax_query'][] = array(
-                        'taxonomy'         => 'job_listing_category',
-                        'field'            => $field,
-                        'terms'            => $cats,
-                        'include_children' => $operator !== 'AND' ,
-                        'operator'         => $operator
-                );
+        if (!empty($_GET['job_types'])) {
+            $query_args['tax_query'][] = array(
+                'taxonomy' => 'job_listing_type',
+                'field' => 'slug',
+                'terms' => explode(',', sanitize_text_field($_GET['job_types'])) + array(0)
+            );
         }
 
-        if ( $job_manager_keyword = sanitize_text_field( $_GET['search_keywords'] ) ) {
-                $query_args['_keyword'] = $job_manager_keyword; // Does nothing but needed for unique hash
-                add_filter( 'posts_clauses', 'get_job_listings_keyword_search' );
+        if (!empty($_GET['job_categories'])) {
+            $cats = explode(',', sanitize_text_field($_GET['job_categories'])) + array(0);
+            $field = is_numeric($cats) ? 'term_id' : 'slug';
+            $operator = 'all' === get_option('job_manager_category_filter_type', 'all') && sizeof($args['search_categories']) > 1 ? 'AND' : 'IN';
+            $query_args['tax_query'][] = array(
+                'taxonomy' => 'job_listing_category',
+                'field' => $field,
+                'terms' => $cats,
+                'include_children' => $operator !== 'AND',
+                'operator' => $operator
+            );
         }
 
-        if ( empty( $query_args['meta_query'] ) ) {
-                unset( $query_args['meta_query'] );
+        if ($job_manager_keyword = sanitize_text_field($_GET['search_keywords'])) {
+            $query_args['_keyword'] = $job_manager_keyword; // Does nothing but needed for unique hash
+            add_filter('posts_clauses', 'get_job_listings_keyword_search');
         }
 
-        if ( empty( $query_args['tax_query'] ) ) {
-                unset( $query_args['tax_query'] );
+        if (empty($query_args['meta_query'])) {
+            unset($query_args['meta_query']);
         }
 
-        query_posts( apply_filters( 'job_feed_args', $query_args ) );
-        add_action( 'rss2_ns', array( $jobsFeed, 'job_feed_namespace' ) );
+        if (empty($query_args['tax_query'])) {
+            unset($query_args['tax_query']);
+        }
+
+        query_posts(apply_filters('job_feed_args', $query_args));
+        add_action('rss2_ns', array($jobsFeed, 'job_feed_namespace'));
         add_action('rss2_item', 'custom_job_feed_item', 20);
-    //    do_feed_rss2( false );
+        //    do_feed_rss2( false );
         $rss_template = get_stylesheet_directory() . '/feed-job_listing.php';
-        load_template( $rss_template );
+        load_template($rss_template);
     }
-    add_feed('job_feed', 'custom_job_feed', 20);
+
+    add_feed('jobs_feed', 'custom_job_feed');
 }
