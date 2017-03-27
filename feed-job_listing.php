@@ -108,7 +108,7 @@ do_action( 'rss_tag_pre', 'rss2' );
                 <?php if(get_the_post_thumbnail()): ?>
                     <media:content url="<?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'jobcompany-thumb'); echo $image[0]; ?>" medium="image" />
                 <?php else : ?>
-                    <media:content url="http://www.chambe-carnet.com/wp-content/uploads/2016/07/company.png" medium="image" />
+                    <media:content url="https://www.chambe-carnet.com/wp-content/uploads/2016/07/company.png" medium="image" />
                 <?php endif; ?>
                 <?php rss_enclosure(); ?>
                 <?php

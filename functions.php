@@ -145,7 +145,6 @@ add_action('wp_enqueue_scripts', 'style_list_events');
 function style_list_events()
 {
     wp_enqueue_script('events', get_stylesheet_directory_uri() . '/js/list-events.js', array(), '', true);
-
 }
 
 add_image_size('jobcompany-thumb', 90, 90, false);
