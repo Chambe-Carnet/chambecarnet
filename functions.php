@@ -68,6 +68,17 @@ function chambecarnet_register_sidebars()
             'after_title' => '</h2>',
         )
     );
+    register_sidebar(
+        array(
+            'name' => 'Sidebar Jobs Left',
+            'id' => 'sidebar-8',
+            'description' => 'Sidebar Jobs Left',
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget' => '</section>',
+            'before_title' => '<h2 class="widget-title">',
+            'after_title' => '</h2>',
+        )
+    );
 }
 
 /**
@@ -114,6 +125,13 @@ function chambecarnet_get_projets_widget()
 {
     return apply_filters('chambecarnet_get_projets_widget', Projets_Widget::$posts);
 }
+
+add_action('widgets_init', 'register_jobs_widget');
+function register_jobs_widget()
+{
+    register_widget('Jobs_Widget');
+}
+
 
 
 # Override du script js du plugin pbd-ajax-load-posts
