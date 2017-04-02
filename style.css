@@ -2348,7 +2348,8 @@ nav.navigation.post-navigation .nav-links > div.nav-next > a {
     border-bottom: 1px solid #4c4c4c;
 }
 
-.pages-asso article.type-page .entry-content a.bouton {
+.pages-asso article.type-page .entry-content a.bouton,
+.asso article.category-asso .entry-content a.bouton {
     display: inline-block;
     padding: 5px 10px;
     background: #607d8b;
@@ -2356,11 +2357,40 @@ nav.navigation.post-navigation .nav-links > div.nav-next > a {
     border-radius: 50px;
     color: #fff;
 }
-
+article.category-news .entry-content a.bouton {
+    display: inline-block;
+    padding: 5px 10px;
+    background: #c6f364;
+    border: none;
+    border-radius: 50px;
+    color: #65771c;
+}
+article.category-events .entry-content a.bouton {
+    display: inline-block;
+    padding: 5px 10px;
+    background: #00bad1;
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+}
 .pages-asso article.type-page .entry-content a.bouton:hover,
-.pages-asso article.type-page .entry-content a.bouton:focus {
+.pages-asso article.type-page .entry-content a.bouton:focus,
+.asso article.category-asso .entry-content a.bouton:hover,
+.asso article.category-asso .entry-content a.bouton:focus{
     background: #4c4c4c;
     border: none;
+}
+article.category-news .entry-content a.bouton:hover,
+article.category-news .entry-content a.bouton:focus {
+    background: #65771c;
+    border: none;
+	color:#fff;
+}
+article.category-events .entry-content a.bouton:hover,
+article.category-events .entry-content a.bouton:focus {
+    background: #034a53;
+    border: none;
+	
 }
 
 .pages-asso article.type-page .entry-content ul,
