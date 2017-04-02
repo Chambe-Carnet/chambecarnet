@@ -469,7 +469,7 @@ header.site-header * {
 }
 
 /*
-	PAGE EXERGUE
+    PAGE EXERGUE
 */
 .widget_fpw_widget {
     position: relative;
@@ -924,61 +924,69 @@ header.site-header * {
 /*
 	PROJETS
 */
-.projets-widget{
-	margin:0 0 80px;
-	overflow:hidden;
+.projets-widget {
+    margin: 0 0 80px;
+    overflow: hidden;
 }
-.projets-widget h2{
-	margin:0 0 15px;
-	color:#000;
-	font-size:1.8em;
+
+.projets-widget h2 {
+    margin: 0 0 15px;
+    color: #000;
+    font-size: 1.8em;
 }
-.projets-widget h2 span{
-	display: block;
+
+.projets-widget h2 span {
+    display: block;
     font-family: "open sans";
     font-weight: 300;
     line-height: 1;
 }
-.projets-widget h2 strong{
-	font-size: 3.5em;
+
+.projets-widget h2 strong {
+    font-size: 3.5em;
     font-weight: normal;
     line-height: 0.9;
 }
-.projets-widget .projet{
-	position:relative;
-	float:left;
-	margin:0 0 0 4%;
-	width:30%;
-	font-size:1.4em;
-	line-height:1.4;
-	color:#000;
+
+.projets-widget .projet {
+    position: relative;
+    float: left;
+    margin: 0 0 0 4%;
+    width: 30%;
+    font-size: 1.4em;
+    line-height: 1.4;
+    color: #000;
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
     -ms-transition: all 0.5s;
     -o-transition: all 0.5s;
     transition: all 0.5s;
 }
-.projets-widget .projet:nth-child(3n+2){
-	margin-left:0;
+
+.projets-widget .projet:nth-child(3n+2) {
+    margin-left: 0;
 }
-.projets-widget .projet a.title{
-	display:block;
-	margin:0 0 10px;
-	color:#000;
+
+.projets-widget .projet a.title {
+    display: block;
+    margin: 0 0 10px;
+    color: #000;
 }
-.projets-widget .projet a.title::before{
-	content:"";
-	position:absolute;
-	top:0;
-	left:0;
-	bottom:0;
-	right:0;
+
+.projets-widget .projet a.title::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
+
 .projets-widget .projet:hover,
 .projets-widget .projet a:hover,
-.projets-widget .projet a:focus{
-	text-decoration:none;
-	color:#607d8b;
+.projets-widget .projet a:focus {
+    text-decoration: none;
+    color: #607d8b;
 }
 
 /*
@@ -1309,6 +1317,17 @@ div.wpcf7-response-output {
 .widget_recent_jobs > ul > li a:hover ul.meta li,
 .widget_recent_jobs > ul > li a:focus ul.meta li {
     color: #761414 !important;
+}
+
+/*
+    JOBS DEPOT
+*/
+#content .jobs-widget {
+    color: #ff6b6b;
+}
+
+#content .jobs-widget h2.widget-title::after {
+    background-position: -55px -83px;
 }
 
 /* Inscription alerte jobs */
@@ -2289,7 +2308,7 @@ nav.navigation.post-navigation .nav-links > div.nav-next > a {
 	RESUME
 */
 .pages-asso article.type-page .entry-summary {
-    margin: 0 30px 10px!important;
+    margin: 0 30px 10px !important;
     font-size: 1.6em;
     font-weight: 300;
     line-height: 1.3;

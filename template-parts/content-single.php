@@ -77,7 +77,7 @@
                         </div>
                     </div>
                 </form>
-                <p><a href="http://www.chambe-carnet.com/jobs" onMouseDown="ga('send', 'event', 'Jobs', 'Clic', 'Billet Jobs');">Consultez notre job board</a></p>
+                <p><a href="https://www.chambe-carnet.com/jobs" onMouseDown="ga('send', 'event', 'Jobs', 'Clic', 'Billet Jobs');">Consultez notre job board</a></p>
             </div>
             <!--End mc_embed_signup-->
             <?php

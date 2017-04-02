@@ -65,6 +65,7 @@ class Countdown_Event_Widget extends WP_Widget
      * @param string $subfolder The subfolder where the template can be found.
      * @param string $namespace The namespace for the widget template stuff.
      * @param string $pluginPath The pluginpath so we can locate the template stuff.
+     * @return string
      */
     public function widget_output($args, $instance, $template_name = '/inc/widget-countdown.php')
     {
@@ -246,6 +247,7 @@ class Compte_Rendu_Widget extends WP_Widget
      * @param string $subfolder The subfolder where the template can be found.
      * @param string $namespace The namespace for the widget template stuff.
      * @param string $pluginPath The pluginpath so we can locate the template stuff.
+     * @return string
      */
     public function widget_output($args, $instance, $template_name = '/inc/widget-compte-rendu.php')
     {
@@ -258,7 +260,7 @@ class Compte_Rendu_Widget extends WP_Widget
             'order' => 'DESC',
             'post_type' => 'post',
             'post_status' => 'publish',
-            'numberposts'   => $instance['nb_items'],
+            'numberposts' => $instance['nb_items'],
             'tax_query' => array(
                 array(
                     'taxonomy' => 'post_tag',
@@ -296,7 +298,7 @@ class Compte_Rendu_Widget extends WP_Widget
 
         /* Strip tags (if needed) and update the widget settings. */
         $instance['nb_items'] = $new_instance['nb_items'];
-        
+
         return $instance;
     }
 
@@ -323,8 +325,8 @@ class Compte_Rendu_Widget extends WP_Widget
     protected function default_instance_args(array $instance)
     {
         return wp_parse_args($instance, array(
-            'title'     => esc_html__('Derniers comptes rendus', 'chambecarnet'),
-            'nb_items'  => 1,
+            'title' => esc_html__('Derniers comptes rendus', 'chambecarnet'),
+            'nb_items' => 1,
         ));
     }
 }
@@ -381,16 +383,17 @@ class Projets_Widget extends WP_Widget
      * @param string $subfolder The subfolder where the template can be found.
      * @param string $namespace The namespace for the widget template stuff.
      * @param string $pluginPath The pluginpath so we can locate the template stuff.
+     * @return string
      */
     public function widget_output($args, $instance, $template_name = '/inc/widget-projets.php')
     {
         global $wp_query, $tribe_ecp, $post;
 
         $args = array(
-            'meta_key'      => '_wp_page_template',
-            'meta_value'    => 'page-projet.php'
+            'meta_key' => '_wp_page_template',
+            'meta_value' => 'page-projet.php'
         );
-        
+
         self::$posts = get_pages($args);
         // If no posts, and the don't show if no posts checked, let's bail
         if (empty(self::$posts) || empty($instance['nb_items'])) {
@@ -419,7 +422,7 @@ class Projets_Widget extends WP_Widget
 
         /* Strip tags (if needed) and update the widget settings. */
         $instance['nb_items'] = $new_instance['nb_items'];
-        
+
         return $instance;
     }
 
@@ -446,8 +449,115 @@ class Projets_Widget extends WP_Widget
     protected function default_instance_args(array $instance)
     {
         return wp_parse_args($instance, array(
-            'title'     => esc_html__('Derniers projets', 'chambecarnet'),
-            'nb_items'  => 1,
+            'title' => esc_html__('Derniers projets', 'chambecarnet'),
+            'nb_items' => 1,
+        ));
+    }
+}
+
+
+class Jobs_Widget extends WP_Widget
+{
+    public static $posts = array();
+
+    /**
+     * Allows widgets extending this one to pass through their own unique name, ID base etc.
+     *
+     * @param string $id_base
+     * @param string $name
+     * @param array $widget_options
+     * @param array $control_options
+     */
+    public function __construct($id_base = '', $name = '', $widget_options = array(), $control_options = array())
+    {
+        $widget_options = array_merge(
+            array(
+                'classname' => 'jobs-widget',
+                'description' => esc_html__('A widget that displays links for Jobs', 'chambecarnet'),
+            ),
+            $widget_options
+        );
+
+        $control_options = array_merge(array('id_base' => 'jobs-widget'), $control_options);
+
+        $id_base = empty($id_base) ? 'jobs-widget' : $id_base;
+        $name = empty($name) ? esc_html__('Jobs', 'chambecarnet') : $name;
+
+        parent::__construct($id_base, $name, $widget_options, $control_options);
+    }
+
+    /**
+     * The main widget output function.
+     *
+     * @param array $args
+     * @param array $instance
+     *
+     * @return string The widget output (html).
+     */
+    public function widget($args, $instance)
+    {
+        return $this->widget_output($args, $instance);
+    }
+
+    /**
+     * The main widget output function (called by the class's widget() function).
+     *
+     * @param array $args
+     * @param array $instance
+     * @param string $template_name The template name.
+     * @param string $subfolder The subfolder where the template can be found.
+     * @param string $namespace The namespace for the widget template stuff.
+     * @param string $pluginPath The pluginpath so we can locate the template stuff.
+     * @return string
+     */
+    public function widget_output($args, $instance, $template_name = '/inc/widget-jobs.php')
+    {
+
+        // Include template file
+        include(get_stylesheet_directory() . $template_name);
+
+    }
+
+    /**
+     * The function for saving widget updates in the admin section.
+     *
+     * @param array $new_instance
+     * @param array $old_instance
+     *
+     * @return array The new widget settings.
+     */
+    public function update($new_instance, $old_instance)
+    {
+        $instance = $old_instance;
+        $new_instance = $this->default_instance_args($new_instance);
+
+        return $instance;
+    }
+
+    /**
+     * Output the admin form for the widget.
+     *
+     * @param array $instance
+     *
+     * @return string The output for the admin widget form.
+     */
+    public function form($instance)
+    {
+        include(get_stylesheet_directory() . '/inc/widget-jobs-admin.php');
+    }
+
+    /**
+     * Accepts and returns the widget's instance array - ensuring any missing
+     * elements are generated and set to their default value.
+     *
+     * @param array $instance
+     *
+     * @return array
+     */
+    protected function default_instance_args(array $instance)
+    {
+        return wp_parse_args($instance, array(
+            'title' => esc_html__('Jobs', 'chambecarnet'),
         ));
     }
 }
