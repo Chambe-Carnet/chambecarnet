@@ -469,13 +469,6 @@ header.site-header * {
 }
 
 /*
-    JOBS DEPOT
-*/
-#content .jobs-widget h2.widget-title::after {
-    display: none;
-}
-
-/*
     PAGE EXERGUE
 */
 .widget_fpw_widget {
@@ -1324,6 +1317,17 @@ div.wpcf7-response-output {
 .widget_recent_jobs > ul > li a:hover ul.meta li,
 .widget_recent_jobs > ul > li a:focus ul.meta li {
     color: #761414 !important;
+}
+
+/*
+    JOBS DEPOT
+*/
+#content .jobs-widget {
+    color: #ff6b6b;
+}
+
+#content .jobs-widget h2.widget-title::after {
+    background-position: -55px -83px;
 }
 
 /* Inscription alerte jobs */
