@@ -367,7 +367,12 @@ header.site-header * {
     margin: 0 0 50px;
     width: 25%;
 }
-
+#secondary-jobs {
+	clear:left;
+    float: left;
+    margin: 0 0 50px;
+    width: 25%;
+}
 .category-asso #secondary {
     width: 55%;
 }
@@ -1325,9 +1330,27 @@ div.wpcf7-response-output {
 #content .jobs-widget {
     color: #ff6b6b;
 }
-
 #content .jobs-widget h2.widget-title::after {
     background-position: -55px -83px;
+}
+#content .jobs-widget ul{
+	padding:0;
+	background:none;
+}
+#content .jobs-widget ul li + li{
+	margin-top:5px;
+}
+#content .jobs-widget ul li a{
+	display:block;
+	padding:10px 20px;
+	background:#ff6b6b;
+	border-radius:50px;
+	color:#fff;
+	font-size:1.3em;
+}
+#content .jobs-widget ul li a:hover,
+#content .jobs-widget ul li a:focus{
+	background:#761414;
 }
 
 /* Inscription alerte jobs */
@@ -2274,7 +2297,8 @@ nav.navigation.post-navigation .nav-links > div.nav-next > a {
 	= PAGES PAGES
 */
 /*------------------------------------------------------------------------------------------------------------*/
-.pages-asso article.type-page {
+.pages-asso article.type-page,
+.jobs-depot article.type-page {
     position: relative;
     margin: 0;
     background: #fff;
@@ -2283,11 +2307,13 @@ nav.navigation.post-navigation .nav-links > div.nav-next > a {
 /*
 	HEADER
 */
-.pages-asso article.type-page .entry-header {
+.pages-asso article.type-page .entry-header,
+.jobs-depot article.type-page .entry-header{
     margin: 30px 30px 20px;
 }
 
-.pages-asso article.type-page .entry-header h1 {
+.pages-asso article.type-page .entry-header h1,
+.jobs-depot article.type-page .entry-header h1{
     margin: 0;
     font-family: 'blanchcaps';
     font-weight: normal;
@@ -2307,7 +2333,8 @@ nav.navigation.post-navigation .nav-links > div.nav-next > a {
 /*
 	RESUME
 */
-.pages-asso article.type-page .entry-summary {
+.pages-asso article.type-page .entry-summary,
+.jobs-depot article.type-page .entry-summary{
     margin: 0 30px 10px !important;
     font-size: 1.6em;
     font-weight: 300;
@@ -2315,7 +2342,7 @@ nav.navigation.post-navigation .nav-links > div.nav-next > a {
     color: #4c4c4c;
 }
 
-.pages-asso .single article.type-page .entry-summary {
+.pages-asso .single article.type-page .entry-summary{
     font-size: 1.7em;
     font-weight: 400;
     line-height: 1.2;
@@ -2324,7 +2351,8 @@ nav.navigation.post-navigation .nav-links > div.nav-next > a {
 /*
 	TEXTE
 */
-.pages-asso article.type-page .entry-content {
+.pages-asso article.type-page .entry-content,
+.jobs-depot article.type-page .entry-content{
     float: none !important;
     margin: 40px 30px 10px !important;
     width: auto !important;
@@ -2336,7 +2364,8 @@ nav.navigation.post-navigation .nav-links > div.nav-next > a {
     margin-top: 0;
 }
 
-.pages-asso article.type-page .entry-content h2 {
+.pages-asso article.type-page .entry-content h2,
+.jobs-depot article.type-page .entry-content h2 {
     margin: 40px 0 10px;
     font-size: 3em;
     font-weight: normal;
@@ -2367,7 +2396,8 @@ nav.navigation.post-navigation .nav-links > div.nav-next > a {
     border-bottom: 1px solid #4c4c4c;
 }
 
-.pages-asso article.type-page .entry-content a.bouton {
+.pages-asso article.type-page .entry-content a.bouton,
+.asso article.category-asso .entry-content a.bouton {
     display: inline-block;
     padding: 5px 10px;
     background: #607d8b;
@@ -2375,11 +2405,40 @@ nav.navigation.post-navigation .nav-links > div.nav-next > a {
     border-radius: 50px;
     color: #fff;
 }
-
+article.category-news .entry-content a.bouton {
+    display: inline-block;
+    padding: 5px 10px;
+    background: #c6f364;
+    border: none;
+    border-radius: 50px;
+    color: #65771c;
+}
+article.category-events .entry-content a.bouton {
+    display: inline-block;
+    padding: 5px 10px;
+    background: #00bad1;
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+}
 .pages-asso article.type-page .entry-content a.bouton:hover,
-.pages-asso article.type-page .entry-content a.bouton:focus {
+.pages-asso article.type-page .entry-content a.bouton:focus,
+.asso article.category-asso .entry-content a.bouton:hover,
+.asso article.category-asso .entry-content a.bouton:focus{
     background: #4c4c4c;
     border: none;
+}
+article.category-news .entry-content a.bouton:hover,
+article.category-news .entry-content a.bouton:focus {
+    background: #65771c;
+    border: none;
+	color:#fff;
+}
+article.category-events .entry-content a.bouton:hover,
+article.category-events .entry-content a.bouton:focus {
+    background: #034a53;
+    border: none;
+	
 }
 
 .pages-asso article.type-page .entry-content ul,
@@ -2399,6 +2458,167 @@ nav.navigation.post-navigation .nav-links > div.nav-next > a {
     margin-left: 0 !important;
     border-color: #686868;
     font-size: 1em;
+}
+
+/*
+	FORMULAIRE DE DEPOT D'UNE OFFRE
+*/
+form#submit-job-form{}
+form#submit-job-form > fieldset:first-child{
+	margin:0 -30px 50px;
+	padding:20px 30px;
+	background:#ff6b6b;
+	border:none;
+	color:#fff;
+}
+form#submit-job-form > fieldset:first-child label{
+	font-family:blanchcaps;
+	font-size:2em;
+}
+form#submit-job-form > fieldset:first-child a{
+	display:block;
+	border:none;
+	box-shadow:none;
+	text-transform:uppercase;
+}
+form#submit-job-form > fieldset:first-child a:hover,
+form#submit-job-form > fieldset:first-child a:focus{
+	color:#000;
+}
+form#submit-job-form input[type="date"],
+form#submit-job-form input[type="time"],
+form#submit-job-form input[type="datetime-local"],
+form#submit-job-form input[type="week"], input[type="month"],
+form#submit-job-form input[type="text"],
+form#submit-job-form input[type="email"],
+form#submit-job-form input[type="url"],
+form#submit-job-form input[type="password"],
+form#submit-job-form input[type="search"],
+form#submit-job-form input[type="tel"],
+form#submit-job-form input[type="number"],
+form#submit-job-form textarea,
+form#submit-job-form select{
+	background:#f9f9f3;
+	border:1px solid #e7e7dc;
+	font-size:1em;
+	font-family:"open sans";
+}
+form#submit-job-form input.button{
+	background:#ff6b6b;
+	border-radius:50px;
+	color:#fff;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+form#submit-job-form input.button:hover{
+	background:#761414;
+}
+
+/*
+	JOB PREVIEW
+*/
+#job_preview .job_listing_preview_title{
+	margin:0 -30px 20px;
+	padding:20px 30px;
+	background:#ff6b6b;
+	overflow:hidden;
+}
+#job_preview .job_listing_preview_title h2{
+	margin:0;
+	color:#fff;
+}
+#job_preview .job_listing_preview_title input{
+	margin-top:10px;
+	background:#fff;
+	border-radius:50px;
+	color:#761414;
+	font-size:0.7em;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+#job_preview .job_listing_preview_title input:hover{
+	background:#761414;
+	color:#fff;
+}
+.job_listing_preview{
+	padding:0;
+	border:none;
+}
+.job_listing_preview h1{
+	margin:0;
+	font-weight:normal;
+	font-size:4em;
+}
+.job_listing_preview .infos-company{
+	margin:0 0 50px;
+	overflow:hidden;
+}
+.job_listing_preview .infos-company img{
+	float:left;
+	margin:0 20px 0 0;
+	height:auto;
+	max-width:100px;
+}
+.job_listing_preview .infos-company ul{
+	margin:0;
+	list-style:none;
+	overflow:hidden;
+}
+.job_listing_preview .infos-company ul li {
+    float: left;
+    margin: 0 0 5px;
+    width: 45%;
+    list-style: none;
+}
+.job_listing_preview  .infos-company ul li:nth-child(even) {
+    clear: left;
+}
+.job_listing_preview  .infos-company ul li.job-type {
+    float: none;
+    margin: 0 0 20px;
+    width: 100%;
+    font-family: 'blanchcaps';
+    font-size: 2.4em;
+    color: #ff6b6b;
+}
+.job_listing_preview  .infos-company ul li::before {
+    content: "";
+    display: inline-block;
+    width: 22px;
+    height: 23px;
+    background-image: url(images/sprite.png);
+    vertical-align: bottom;
+}
+.job_listing_preview .infos-company ul li.job-type::before {
+    display: none;
+}
+
+.job_listing_preview .infos-company ul li.nom-company::before {
+    background-position: -55px -55px;
+}
+.job_listing_preview .infos-company ul li.twitter-company::before {
+    background-position: -110px -55px;
+}
+.job_listing_preview .infos-company ul li.location::before {
+    background-position: 0 -55px;
+}
+.job_listing_preview .infos-company ul li.website-compagny::before {
+    background-position: -165px -55px;
+}
+article.type-job_listing .entry-content .infos-company ul li p {
+    margin: 0;
+    font-style: italic;
+}
+.job_listing_preview .infos-company ul li a,
+.job_listing_preview .entry-content .infos-company ul li a:hover,
+.job_listing_preview .entry-content .infos-company ul li a:focus {
+    border: none;
 }
 
 /*------------------------------------------------------------------------------------------------------------*/
