@@ -11,11 +11,11 @@
  * @since Twenty Sixteen 1.0
  */
  
- /* Template Name: Jobs */
+ /* Template Name: Jobs depot */
 
 get_header(); ?>
 
-<div id="primary" class="content-area page-jobs">
+<div id="primary" class="content-area page-jobs jobs-depot">
 	<main id="main" class="site-main" role="main">
 		<?php
 		// Start the loop.

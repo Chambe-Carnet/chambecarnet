@@ -68,6 +68,17 @@ function chambecarnet_register_sidebars()
             'after_title' => '</h2>',
         )
     );
+    register_sidebar(
+        array(
+            'name' => 'Sidebar Jobs Left',
+            'id' => 'sidebar-8',
+            'description' => 'Sidebar Jobs Left',
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget' => '</section>',
+            'before_title' => '<h2 class="widget-title">',
+            'after_title' => '</h2>',
+        )
+    );
 }
 
 /**
@@ -115,6 +126,13 @@ function chambecarnet_get_projets_widget()
     return apply_filters('chambecarnet_get_projets_widget', Projets_Widget::$posts);
 }
 
+add_action('widgets_init', 'register_jobs_widget');
+function register_jobs_widget()
+{
+    register_widget('Jobs_Widget');
+}
+
+
 
 # Override du script js du plugin pbd-ajax-load-posts
 add_action('wp_enqueue_scripts', 'load_posts_ajax');
@@ -145,7 +163,6 @@ add_action('wp_enqueue_scripts', 'style_list_events');
 function style_list_events()
 {
     wp_enqueue_script('events', get_stylesheet_directory_uri() . '/js/list-events.js', array(), '', true);
-
 }
 
 add_image_size('jobcompany-thumb', 90, 90, false);
@@ -175,8 +192,8 @@ function custom_template_redirect()
         $wp_query = new WP_Query($args);
         if (empty($wp_query->posts)) {
             $wp_query->is_404 = true;
-        }
-        else {
+        } 
+		else {
             global $post;
             $post = $wp_query->posts[0];
             add_filter('aioseop_title', 'custom_wp_title', 20);
