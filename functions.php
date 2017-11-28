@@ -114,6 +114,16 @@ function chambecarnet_get_comptes_rendus_widget()
     return apply_filters('chambecarnet_get_comptes_rendus_widget', Compte_Rendu_Widget::$posts);
 }
 
+function register_billetscorrelesevent_widget()
+{
+    register_widget('Billets_Correles_Event_Widget');
+}
+
+function chambecarnet_get_billets_correles_event_widget()
+{
+    return apply_filters('chambecarnet_get_billets_correles_event_widget', Billets_Correles_Event_Widget::$posts);
+}
+
 function register_projets_widget()
 {
     register_widget('Projets_Widget');

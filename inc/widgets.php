@@ -244,9 +244,6 @@ class Compte_Rendu_Widget extends WP_Widget
      * @param array $args
      * @param array $instance
      * @param string $template_name The template name.
-     * @param string $subfolder The subfolder where the template can be found.
-     * @param string $namespace The namespace for the widget template stuff.
-     * @param string $pluginPath The pluginpath so we can locate the template stuff.
      * @return string
      */
     public function widget_output($args, $instance, $template_name = '/inc/widget-compte-rendu.php')
@@ -558,6 +555,140 @@ class Jobs_Widget extends WP_Widget
     {
         return wp_parse_args($instance, array(
             'title' => esc_html__('Jobs', 'chambecarnet'),
+        ));
+    }
+}
+
+class Billets_Correles_Event_Widget extends WP_Widget
+{
+    public static $posts = array();
+
+    /**
+     * Allows widgets extending this one to pass through their own unique name, ID base etc.
+     *
+     * @param string $id_base
+     * @param string $name
+     * @param array $widget_options
+     * @param array $control_options
+     */
+    public function __construct($id_base = '', $name = '', $widget_options = array(), $control_options = array())
+    {
+        $widget_options = array_merge(
+            array(
+                'classname' => 'billets-correles-event-widget',
+                'description' => esc_html__('A widget that displays all posts associated with the event', 'chambecarnet'),
+            ),
+            $widget_options
+        );
+
+        $control_options = array_merge(array('id_base' => 'billets-correles-event-widget'), $control_options);
+
+        $id_base = empty($id_base) ? 'compte-rendu-widget' : $id_base;
+        $name = empty($name) ? esc_html__("Billets corrélés à l'événement", 'chambecarnet') : $name;
+
+        parent::__construct($id_base, $name, $widget_options, $control_options);
+    }
+
+    /**
+     * The main widget output function.
+     *
+     * @param array $args
+     * @param array $instance
+     *
+     * @return string The widget output (html).
+     */
+    public function widget($args, $instance)
+    {
+        return $this->widget_output($args, $instance);
+    }
+
+    /**
+     * The main widget output function (called by the class's widget() function).
+     *
+     * @param array $args
+     * @param array $instance
+     * @param string $template_name The template name.
+     * @return string
+     */
+    public function widget_output($args, $instance, $template_name = '/inc/widget-billets-correles-event.php')
+    {
+        global $wp_query, $tribe_ecp, $post;
+
+        $tags = wp_get_post_tags($post->ID, array('fields' => 'ids'));
+        foreach ($tags as $tag) {
+            $args = array(
+                'posts_per_page' => 20,
+                'exclude' => $post->ID,
+                'orderby' => 'date',
+                'order' => 'ASC',
+                'post_type' => 'post',
+                'post_status' => 'publish',
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'post_tag',
+                        'field' => 'id',
+                        'terms' => $tag
+                    )
+                )
+            );
+            self::$posts = get_posts($args);
+        }
+        // If no posts, and the don't show if no posts checked, let's bail
+        if (empty(self::$posts) || empty($instance['nb_items'])) {
+            return 'pouet';
+        }
+
+        // Include template file
+        include(get_stylesheet_directory() . $template_name);
+
+        wp_reset_query();
+
+    }
+
+    /**
+     * The function for saving widget updates in the admin section.
+     *
+     * @param array $new_instance
+     * @param array $old_instance
+     *
+     * @return array The new widget settings.
+     */
+    public function update($new_instance, $old_instance)
+    {
+        $instance = $old_instance;
+        $new_instance = $this->default_instance_args($new_instance);
+
+        /* Strip tags (if needed) and update the widget settings. */
+        $instance['nb_items'] = $new_instance['nb_items'];
+
+        return $instance;
+    }
+
+    /**
+     * Output the admin form for the widget.
+     *
+     * @param array $instance
+     *
+     * @return string The output for the admin widget form.
+     */
+    public function form($instance)
+    {
+        include(get_stylesheet_directory() . '/inc/widget-billets-correles-event-admin.php');
+    }
+
+    /**
+     * Accepts and returns the widget's instance array - ensuring any missing
+     * elements are generated and set to their default value.
+     *
+     * @param array $instance
+     *
+     * @return array
+     */
+    protected function default_instance_args(array $instance)
+    {
+        return wp_parse_args($instance, array(
+            'title' => esc_html__('En savoir plus', 'chambecarnet'),
+            'nb_items' => 1,
         ));
     }
 }
