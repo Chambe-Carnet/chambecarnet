@@ -90,48 +90,62 @@ require get_stylesheet_directory() . '/inc/template-tags.php';
  * widgets
  */
 require get_stylesheet_directory() . '/inc/widgets.php';
+
+
+/** widget countdown */
 function register_countdown_widget()
 {
     register_widget('Countdown_Event_Widget');
 }
-
 add_action('widgets_init', 'register_countdown_widget');
-
 function chambecarnet_get_list_widget_events()
 {
     return apply_filters('chambecarnet_get_list_widget_events', Countdown_Event_Widget::$posts);
 }
 
+
+/** widget compte rendu */
 function register_compterendu_widget()
 {
     register_widget('Compte_Rendu_Widget');
 }
-
 add_action('widgets_init', 'register_compterendu_widget');
-
 function chambecarnet_get_comptes_rendus_widget()
 {
     return apply_filters('chambecarnet_get_comptes_rendus_widget', Compte_Rendu_Widget::$posts);
 }
 
+
+/** widget billets correles */
+function register_billetscorrelesevent_widget()
+{
+    register_widget('Billets_Correles_Event_Widget');
+}
+add_action('widgets_init', 'register_billetscorrelesevent_widget');
+function chambecarnet_get_billets_correles_event_widget()
+{
+    return apply_filters('chambecarnet_get_billets_correles_event_widget', Billets_Correles_Event_Widget::$posts);
+}
+
+
+/** widget projets */
 function register_projets_widget()
 {
     register_widget('Projets_Widget');
 }
-
 add_action('widgets_init', 'register_projets_widget');
-
 function chambecarnet_get_projets_widget()
 {
     return apply_filters('chambecarnet_get_projets_widget', Projets_Widget::$posts);
 }
 
+
+/** widget jobs */
 add_action('widgets_init', 'register_jobs_widget');
 function register_jobs_widget()
 {
     register_widget('Jobs_Widget');
 }
-
 
 
 # Override du script js du plugin pbd-ajax-load-posts
@@ -192,18 +206,17 @@ function custom_template_redirect()
         $wp_query = new WP_Query($args);
         if (empty($wp_query->posts)) {
             $wp_query->is_404 = true;
-        } 
-		else {
+        } else {
             global $post;
             $post = $wp_query->posts[0];
             add_filter('aioseop_title', 'custom_wp_title', 20);
-            function custom_seo_title(){
+            function custom_seo_title()
+            {
                 global $post;
                 return $post->post_title;
             }
         }
-    } 
-    elseif (get_query_var('name') == 'page' && is_int(get_query_var('page')) && !empty(get_query_var('category_name'))) {
+    } elseif (get_query_var('name') == 'page' && is_int(get_query_var('page')) && !empty(get_query_var('category_name'))) {
         //Correction du problème de pagination des catégories qui provient du fait que la préfixe des catégories soit un point '.'
         unset($wp_query->query['name']);
         $wp_query->query['paged'] = get_query_var('page');
