@@ -559,6 +559,7 @@ class Jobs_Widget extends WP_Widget
     }
 }
 
+
 class Billets_Correles_Event_Widget extends WP_Widget
 {
     public static $posts = array();
@@ -583,7 +584,7 @@ class Billets_Correles_Event_Widget extends WP_Widget
 
         $control_options = array_merge(array('id_base' => 'billets-correles-event-widget'), $control_options);
 
-        $id_base = empty($id_base) ? 'compte-rendu-widget' : $id_base;
+        $id_base = empty($id_base) ? 'billets-correles-event-widget' : $id_base;
         $name = empty($name) ? esc_html__("Billets corrélés à l'événement", 'chambecarnet') : $name;
 
         parent::__construct($id_base, $name, $widget_options, $control_options);
