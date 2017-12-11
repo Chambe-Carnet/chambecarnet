@@ -248,9 +248,11 @@ if (class_exists("WP_Job_Manager_Post_Types")) {
         }
         if ($job_type) {
             echo "<job_listing:job_type><![CDATA[" . esc_html($job_type->name) . "]]></job_listing:job_type>\n";
+            echo "<content:encoded><![CDATA[" . esc_html($job_type->name) . "]]></content:encoded>\n";
         }
         if ($company) {
             echo "<job_listing:company><![CDATA[" . esc_html($company) . "]]></job_listing:company>\n";
+            echo "<dc:creator><![CDATA[" . esc_html($company) . "]]></dc:creator>\n";
         }
 
         /**
