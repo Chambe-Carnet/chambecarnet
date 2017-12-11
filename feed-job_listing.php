@@ -88,19 +88,10 @@ do_action( 'rss_tag_pre', 'rss2' );
                     <comments><?php comments_link_feed(); ?></comments>
                 <?php endif; ?>
                 <pubDate><?php echo mysql2date('D, d M Y H:i:s +0000', get_post_time('Y-m-d H:i:s', true), false); ?></pubDate>
-                <dc:creator><![CDATA[<?php the_author() ?>]]></dc:creator>
                 <?php the_category_rss('rss2') ?>
 
                 <guid isPermaLink="false"><?php the_guid(); ?></guid>
-                <?php if (get_option('rss_use_excerpt')) : ?>
-                <?php else : ?>
-                    <?php $content = get_the_content_feed('rss2'); ?>
-                    <?php if ( strlen( $content ) > 0 ) : ?>
-                        <content:encoded><![CDATA[<?php echo $content; ?>]]></content:encoded>
-                    <?php else : ?>
-                        <content:encoded><![CDATA[<?php the_excerpt_rss(); ?>]]></content:encoded>
-                    <?php endif; ?>
-                <?php endif; ?>
+                
                 <?php if ( get_comments_number() || comments_open() ) : ?>
                     <wfw:commentRss><?php echo esc_url( get_post_comments_feed_link(null, 'rss2') ); ?></wfw:commentRss>
                     <slash:comments><?php echo get_comments_number(); ?></slash:comments>
