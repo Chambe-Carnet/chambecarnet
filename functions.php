@@ -334,3 +334,6 @@ if (class_exists("WP_Job_Manager_Post_Types")) {
 
     add_feed('jobs_feed', 'custom_job_feed');
 }
+
+add_filter( 'tribe_events_add_no_index_meta', '__return_false' );
+add_filter( 'wpseo_robots', '__return_false' );
