@@ -207,6 +207,8 @@ function custom_template_redirect()
         if (empty($wp_query->posts)) {
             $wp_query->is_404 = true;
         } else {
+            $wp_query->is_404 = false;
+            status_header(200);
             global $post;
             $post = $wp_query->posts[0];
             add_filter('aioseop_title', 'custom_wp_title', 20);

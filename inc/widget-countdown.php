@@ -32,7 +32,15 @@ if ($posts) : ?>
             <script type="text/javascript">
                 (function ($) {
                     $('document').ready(function () {
-                        $('.compteur').countdown('<?php echo tribe_get_start_date($post, true, 'Y/m/d H:i:s') ?>', function (event) {
+                        <?php $event_dateinscription = get_post_meta($post->ID, 'event_dateinscription', true);
+                        if (!empty($event_dateinscription)) {
+                          $date_countdown = $event_dateinscription . ' 23:55:00';
+                        }
+                        else {
+                          $date_countdown = tribe_get_start_date($post, true, 'Y/m/d H:i:s');
+                        }
+                        ?>
+                        $('.compteur').countdown('<?php echo $date_countdown ?>', function (event) {
                             $(this).html(event.strftime('%DJ - %HH - %MM - %SS'));
                         });
                     });
@@ -52,7 +60,7 @@ if ($posts) : ?>
         ?>
             <p class="sous-titre"><?php echo $event_baseline; ?></p>
         <?php } ?>
-    
+
         <?php
         $event_animateur = get_post_meta($post->ID, 'event_animateur', true);
         if (!empty($event_animateur)) {
