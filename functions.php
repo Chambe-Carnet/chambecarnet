@@ -207,6 +207,8 @@ function custom_template_redirect()
         if (empty($wp_query->posts)) {
             $wp_query->is_404 = true;
         } else {
+            $wp_query->is_404 = false;
+            status_header(200);
             global $post;
             $post = $wp_query->posts[0];
             add_filter('aioseop_title', 'custom_wp_title', 20);
@@ -332,3 +334,6 @@ if (class_exists("WP_Job_Manager_Post_Types")) {
 
     add_feed('jobs_feed', 'custom_job_feed');
 }
+
+add_filter( 'tribe_events_add_no_index_meta', '__return_false' );
+add_filter( 'wpseo_robots', '__return_false' );

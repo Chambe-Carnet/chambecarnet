@@ -5,7 +5,7 @@
  Author:       Chambé-Carnet
  Author URI:   http://example.com
  Template:     twentysixteen
- Version:      1.3.1
+ Version:      1.3.2
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
@@ -2528,7 +2528,7 @@ article.category-events .entry-content a.bouton:hover,
 article.category-events .entry-content a.bouton:focus {
     background: #034a53;
     border: none;
-	
+
 }
 
 .pages-asso article.type-page .entry-content ul,
@@ -3654,19 +3654,19 @@ article.type-job_listing .entry-content .infos-company ul li.job-type::before {
 }
 
 article.type-job_listing .entry-content .infos-company ul li.nom-company::before {
-    background-position: -55px -55px;
+    background-position: -55px -54px;
 }
 
 article.type-job_listing .entry-content .infos-company ul li.twitter-company::before {
-    background-position: -110px -55px;
+    background-position: -110px -52px;
 }
 
 article.type-job_listing .entry-content .infos-company ul li.location::before {
-    background-position: 0 -55px;
+    background-position: 0 -54px;
 }
 
 article.type-job_listing .entry-content .infos-company ul li.website-compagny::before {
-    background-position: -165px -55px;
+    background-position: -165px -53px;
 }
 
 article.type-job_listing .entry-content .infos-company ul li p {
@@ -4529,8 +4529,3 @@ footer.site-footer section.sidebar {
         margin: 0 10px 0 0;
     }
 }
-
-
-
-
-
