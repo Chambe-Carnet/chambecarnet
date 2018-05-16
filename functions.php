@@ -335,5 +335,14 @@ if (class_exists("WP_Job_Manager_Post_Types")) {
     add_feed('jobs_feed', 'custom_job_feed');
 }
 
+function my_custom_rss( $for_comments ) {
+        if ( $for_comments )
+                load_template( ABSPATH . WPINC . '/feed-rss2-comments.php' );
+        else
+                load_template( ABSPATH . '/wp-content/themes/chambecarnet/feed-rss2-custom.php' );
+}
+remove_all_actions( 'do_feed_rss2' );
+add_action( 'do_feed_rss2', 'my_custom_rss', 10, 1 );
+
 add_filter( 'tribe_events_add_no_index_meta', '__return_false' );
 add_filter( 'wpseo_robots', '__return_false' );
