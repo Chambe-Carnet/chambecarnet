@@ -5,7 +5,7 @@
  Author:       Chambé-Carnet
  Author URI:   http://example.com
  Template:     twentysixteen
- Version:      1.3.6
+ Version:      1.3.7
  License:      GNU General Public License v2 or later
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
@@ -2767,7 +2767,7 @@ article.type-tribe_events .evenenemt #event-content {
     width: 80%;
 }
 
-article.type-tribe_events .evenenemt h2 {
+article.type-tribe_events .evenenemt h2.tribe-events-list-event-title {
     display: block;
     margin: 0 0 10px;
     font-size: 5em;
