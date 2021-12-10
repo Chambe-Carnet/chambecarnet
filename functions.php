@@ -346,39 +346,3 @@ add_action( 'do_feed_rss2', 'my_custom_rss', 10, 1 );
 
 add_filter( 'tribe_events_add_no_index_meta', '__return_false' );
 add_filter( 'wpseo_robots', '__return_false' );
-
-function wp_slack_job_review( $events ) {
-    $events['job_pending_review'] = array(
-        'action'      => 'transition_post_status',
-        'description' => __( 'When a job needs review', 'slack' ),
-        'default'     => false,
-        'message'     => function( $new_status, $old_status, $post ) {
-            $notified_post_types = apply_filters( 'slack_event_transition_post_status_post_types', array(
-                'post',
-            ) );
-
-            if ( ! in_array( $post->post_type, $notified_post_types ) ) {
-                return false;
-            }
-
-            if ( 'pending' !== $old_status && 'pending' === $new_status ) {
-                $excerpt = has_excerpt( $post->ID ) ?
-                    apply_filters( 'get_the_excerpt', $post->post_excerpt )
-                    :
-                    wp_trim_words( strip_shortcodes( $post->post_content ), 55, '&hellip;' );
-
-                return sprintf(
-                    /* translators: 1) URL, 2) post title and 3) post author. */
-                    __( 'New job needs review: *<%1$s|%2$s>* by *%3$s*', 'slack' ) . "\n" .
-                    '> %4$s',
-                    admin_url( sprintf( 'post.php?post=%d&action=edit', $post->ID ) ),
-                    html_entity_decode( get_the_title( $post->ID ), ENT_QUOTES, get_bloginfo( 'charset' ) ),
-                    get_the_author_meta( 'display_name', $post->post_author ),
-                    html_entity_decode( $excerpt, ENT_QUOTES, get_bloginfo( 'charset' ) )
-                );
-            }
-        },
-    );
-    return $events;
-}
-add_filter( 'slack_get_events', 'wp_slack_job_review' );
