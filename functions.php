@@ -211,7 +211,7 @@ function custom_template_redirect()
             status_header(200);
             global $post;
             $post = $wp_query->posts[0];
-            add_filter('aioseop_title', 'custom_wp_title', 20);
+            add_filter('wpseo_title', 'custom_seo_title', 20);
             function custom_seo_title()
             {
                 global $post;
