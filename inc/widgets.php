@@ -250,7 +250,8 @@ class Compte_Rendu_Widget extends WP_Widget
     {
         global $wp_query, $tribe_ecp, $post;
 
-        $title = apply_filters('widget_title', $title);
+	    $title = "Derniers comptes rendus";
+	    $title = apply_filters('widget_title', $title);
 
         $args = array(
             'orderby' => 'date',
