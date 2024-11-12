@@ -223,6 +223,7 @@ add_action( 'template_redirect', 'custom_template_redirect', 20 );
 
 #Override des fonctions du flux rss des jobs
 if ( class_exists( "WP_Job_Manager_Post_Types" ) ) {
+	$post_id = get_the_ID();
 	remove_action( 'job_feed_item', $post_id );
 	$jobsFeed = new WP_Job_Manager_Post_Types();
 	function custom_job_feed_item() {
@@ -286,9 +287,9 @@ if ( class_exists( "WP_Job_Manager_Post_Types" ) ) {
 		}
 
 		if ( ! empty( $_GET['job_categories'] ) ) {
-			$cats                      = explode( ',', sanitize_text_field( $_GET['job_categories'] ) ) + array( 0 );
+			$cats                      = array_merge( explode( ',', sanitize_text_field( $_GET['job_categories'] ) ), array( 0 ) );
 			$field                     = is_numeric( $cats ) ? 'term_id' : 'slug';
-			$operator                  = 'all' === get_option( 'job_manager_category_filter_type', 'all' ) && sizeof( $args['search_categories'] ) > 1 ? 'AND' : 'IN';
+			$operator                  = 'all' === get_option( 'job_manager_category_filter_type', 'all' ) && sizeof( $_GET['search_categories'] ) > 1 ? 'AND' : 'IN';
 			$query_args['tax_query'][] = array(
 				'taxonomy'         => 'job_listing_category',
 				'field'            => $field,
